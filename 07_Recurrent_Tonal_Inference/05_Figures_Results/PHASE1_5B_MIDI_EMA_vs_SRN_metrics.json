@@ -1,0 +1,215 @@
+{
+  "phase": "phase_1_5b_midi_evaluation",
+  "seed": 269,
+  "ema_settings": {
+    "alpha": 0.2,
+    "mlp_training": {
+      "seed": 269,
+      "epochs": 12,
+      "train_loss": 1.7203,
+      "val_loss": 1.7167,
+      "val_acc": 0.287
+    }
+  },
+  "srn_settings": {
+    "epochs": 25,
+    "lr": 0.001,
+    "hidden_size": 48,
+    "seed": 269,
+    "training": {
+      "train_loss": 0.6173,
+      "train_acc": 0.794,
+      "val_loss": 0.6622,
+      "val_acc": 0.78
+    }
+  },
+  "twinkle_mid": {
+    "n_timesteps": 106,
+    "plotted_keys": [
+      "C maj",
+      "F maj",
+      "G maj",
+      "D min"
+    ],
+    "ema": {
+      "n_timesteps": 106,
+      "top_predicted_keys": [
+        {
+          "key": "G maj",
+          "key_id": 7,
+          "count": 48,
+          "fraction": 0.4528301886792453
+        },
+        {
+          "key": "F maj",
+          "key_id": 5,
+          "count": 42,
+          "fraction": 0.39622641509433965
+        },
+        {
+          "key": "C maj",
+          "key_id": 0,
+          "count": 13,
+          "fraction": 0.12264150943396226
+        },
+        {
+          "key": "D min",
+          "key_id": 14,
+          "count": 3,
+          "fraction": 0.02830188679245283
+        }
+      ],
+      "n_unique_predicted_keys": 4,
+      "avg_prob_c_major": 0.14747166633605957,
+      "mean_confidence_top1": 0.2711493670940399,
+      "mean_entropy": 1.908894419670105,
+      "max_possible_entropy_uniform24": 3.1780538303479458,
+      "fifths_jump_stats": {
+        "mean_jump": 0.3047619047619048,
+        "max_jump": 3.0,
+        "large_jump_count": 2,
+        "large_jump_fraction": 0.01904761904761905,
+        "large_jump_threshold": 3
+      }
+    },
+    "srn": {
+      "n_timesteps": 106,
+      "top_predicted_keys": [
+        {
+          "key": "F maj",
+          "key_id": 5,
+          "count": 71,
+          "fraction": 0.6698113207547169
+        },
+        {
+          "key": "G maj",
+          "key_id": 7,
+          "count": 31,
+          "fraction": 0.29245283018867924
+        },
+        {
+          "key": "A# min",
+          "key_id": 22,
+          "count": 4,
+          "fraction": 0.03773584905660377
+        }
+      ],
+      "n_unique_predicted_keys": 3,
+      "avg_prob_c_major": 0.07188648730516434,
+      "mean_confidence_top1": 0.7088821530342102,
+      "mean_entropy": 0.9443514943122864,
+      "max_possible_entropy_uniform24": 3.1780538303479458,
+      "fifths_jump_stats": {
+        "mean_jump": 0.3047619047619048,
+        "max_jump": 2.0,
+        "large_jump_count": 0,
+        "large_jump_fraction": 0.0,
+        "large_jump_threshold": 3
+      }
+    }
+  },
+  "twinkle_12_mid": {
+    "n_timesteps": 1271,
+    "plotted_keys": [
+      "C maj",
+      "F maj",
+      "G maj",
+      "D min"
+    ],
+    "ema": {
+      "n_timesteps": 1271,
+      "top_predicted_keys": [
+        {
+          "key": "F maj",
+          "key_id": 5,
+          "count": 780,
+          "fraction": 0.6136900078678206
+        },
+        {
+          "key": "C maj",
+          "key_id": 0,
+          "count": 163,
+          "fraction": 0.12824547600314712
+        },
+        {
+          "key": "A# maj",
+          "key_id": 10,
+          "count": 99,
+          "fraction": 0.07789142407553108
+        },
+        {
+          "key": "G maj",
+          "key_id": 7,
+          "count": 80,
+          "fraction": 0.06294256490952006
+        },
+        {
+          "key": "C# maj",
+          "key_id": 1,
+          "count": 48,
+          "fraction": 0.03776553894571204
+        }
+      ],
+      "n_unique_predicted_keys": 13,
+      "avg_prob_c_major": 0.17028172314167023,
+      "mean_confidence_top1": 0.2431468665599823,
+      "mean_entropy": 1.8356167078018188,
+      "max_possible_entropy_uniform24": 3.1780538303479458,
+      "fifths_jump_stats": {
+        "mean_jump": 0.2220472440944882,
+        "max_jump": 5.0,
+        "large_jump_count": 52,
+        "large_jump_fraction": 0.04094488188976378,
+        "large_jump_threshold": 3
+      }
+    },
+    "srn": {
+      "n_timesteps": 1271,
+      "top_predicted_keys": [
+        {
+          "key": "F maj",
+          "key_id": 5,
+          "count": 764,
+          "fraction": 0.6011014948859166
+        },
+        {
+          "key": "C maj",
+          "key_id": 0,
+          "count": 154,
+          "fraction": 0.12116443745082613
+        },
+        {
+          "key": "D# maj",
+          "key_id": 3,
+          "count": 124,
+          "fraction": 0.0975609756097561
+        },
+        {
+          "key": "G maj",
+          "key_id": 7,
+          "count": 70,
+          "fraction": 0.05507474429583006
+        },
+        {
+          "key": "C# maj",
+          "key_id": 1,
+          "count": 54,
+          "fraction": 0.042486231313926044
+        }
+      ],
+      "n_unique_predicted_keys": 17,
+      "avg_prob_c_major": 0.14347967505455017,
+      "mean_confidence_top1": 0.7612432241439819,
+      "mean_entropy": 0.8209934234619141,
+      "max_possible_entropy_uniform24": 3.1780538303479458,
+      "fifths_jump_stats": {
+        "mean_jump": 0.1763779527559055,
+        "max_jump": 6.0,
+        "large_jump_count": 30,
+        "large_jump_fraction": 0.023622047244094488,
+        "large_jump_threshold": 3
+      }
+    }
+  },
+  "notes": "Phase 1.5B: MIDI-derived chord-id evaluation (data-source change only, same 24-dim one-hot chord/triad representation as Phase 1). Not an accuracy test -- no MIDI ground truth labels exist. Raw-chroma Phase 2 has not started."
+}

@@ -1,0 +1,323 @@
+{
+  "phase": "phase_3f_candidate_midi_corpus_registry",
+  "generated_note": "Registry entries created via manual curation informed by inspect_intermediate_midi_candidates.py QA output. No tonal-inference evaluation (Phase 2C/2D/3B) has been run on any candidate file -- this is metadata QA and ladder planning only.",
+  "candidate_dir": "03_MIDI_Data/candidate_intermediate_midi/",
+  "ladder_entries": [
+    {
+      "entry_id": "L1_twinkle_mid",
+      "original_filename": "Twinkle.mid",
+      "display_name": "Twinkle Twinkle Little Star (existing reference)",
+      "location": "03_MIDI_Data/Twinkle.mid",
+      "status": "existing_reference_do_not_move_do_not_reprocess",
+      "source_license": "Already part of this workspace (see README.md); no action needed.",
+      "expected_key": "C",
+      "expected_mode": "major",
+      "texture_category": "monophonic, no modulation",
+      "intended_benchmark_level": 1,
+      "recommended_scope": "full_piece",
+      "excerpt_note": null,
+      "expected_challenge_pitch_class_baseline": "trivial (already validated: 100% C major, Phase 2D/3B)",
+      "expected_challenge_chord_id_ema_srn": "moderate (F-major bias already documented, Phase 1.5B)",
+      "qa": {
+        "note": "Not reprocessed by this script -- duration/notes figures below are as already documented in Phase 1.5A/2C reports, reproduced here for the ladder table only.",
+        "duration_sec": 53.05,
+        "total_notes": 84,
+        "n_instruments": 1,
+        "key_signature_changes": []
+      },
+      "qa_recommendation": "pass (already validated across Phases 1.5-3D)"
+    },
+    {
+      "entry_id": "L2_bach_minuet_g_major",
+      "original_filename": "J.S. Bach - Minuet in G Major, BWV Anh. 114.mid",
+      "display_name": "Bach \u2014 Minuet in G Major, BWV Anh. 114",
+      "location": "03_MIDI_Data/candidate_intermediate_midi/J.S. Bach - Minuet in G Major, BWV Anh. 114.mid",
+      "status": "candidate_moved_to_candidate_dir",
+      "source_license": "<TBD -- user to fill in exact source URL / license note>",
+      "expected_key": "G",
+      "expected_mode": "major",
+      "texture_category": "non-C major tonic + light accompaniment (single Grand Piano track, chordal/melodic mix)",
+      "intended_benchmark_level": 2,
+      "recommended_scope": "full_piece",
+      "excerpt_note": "Full piece likely usable as-is: 82.3s, 430 notes -- comparable scale to Twinkle.mid, well within readable-plot range.",
+      "expected_challenge_pitch_class_baseline": "low-moderate: tests whether the baseline's Twinkle.mid strength is C-major-specific or generalizes to G major.",
+      "expected_challenge_chord_id_ema_srn": "unknown -- first non-C-major test of the chord-id path; no prior evidence to predict direction.",
+      "qa": {
+        "filename": "J.S. Bach - Minuet in G Major, BWV Anh. 114.mid",
+        "path": "03_MIDI_Data/candidate_intermediate_midi/J.S. Bach - Minuet in G Major, BWV Anh. 114.mid",
+        "load_ok": true,
+        "duration_sec": 82.285632,
+        "n_instruments": 1,
+        "instruments": [
+          {
+            "index": 0,
+            "name": "Grand Piano",
+            "program": 0,
+            "is_drum": false,
+            "n_notes": 430
+          }
+        ],
+        "total_notes": 430,
+        "notes_per_sec": 5.225699670144114,
+        "max_polyphony_approx": 6,
+        "key_signature_changes": [],
+        "time_signature_changes": [
+          {
+            "time": 0.0,
+            "numerator": 4,
+            "denominator": 4
+          }
+        ],
+        "tempo_changes": [
+          {
+            "time": 0.0,
+            "bpm": 70.00007000007
+          }
+        ],
+        "warnings": [
+          "no_key_signature_metadata"
+        ],
+        "qa_recommendation": "warn"
+      },
+      "qa_recommendation": "warn"
+    },
+    {
+      "entry_id": "L3_beethoven_fur_elise",
+      "original_filename": "Beethoven - Fur Elise.mid.mid",
+      "display_name": "Beethoven \u2014 F\u00fcr Elise",
+      "location": "03_MIDI_Data/candidate_intermediate_midi/Beethoven - Fur Elise.mid.mid",
+      "status": "candidate_moved_to_candidate_dir",
+      "source_license": "<TBD -- user to fill in exact source URL / license note>",
+      "expected_key": "A",
+      "expected_mode": "minor",
+      "texture_category": "minor-key melody + accompaniment (relative-major/minor ambiguity test)",
+      "intended_benchmark_level": 3,
+      "recommended_scope": "excerpt",
+      "excerpt_note": "Full piece is 230.3s (well beyond Twinkle.mid/Bach-Minuet scale) -- recommend using only the well-known opening A-minor theme, not the full ABACA rondo form (which modulates through F major and other keys later on, conflating the minor-key test with a modulation test). Exact cut time is TBD, to be set during Phase 3G based on listening/score reference, not guessed here.",
+      "expected_challenge_pitch_class_baseline": "high: this is the primary intended test of the relative-major/minor ambiguity Phase 3B identified (SCALE_TEMPLATES gives A minor and C major identical rows) -- expect the baseline to show real difficulty distinguishing A minor from C major on this opening theme.",
+      "expected_challenge_chord_id_ema_srn": "unknown -- first minor-key test of the chord-id path.",
+      "qa": {
+        "filename": "Beethoven - Fur Elise.mid.mid",
+        "path": "03_MIDI_Data/candidate_intermediate_midi/Beethoven - Fur Elise.mid.mid",
+        "load_ok": true,
+        "duration_sec": 230.2964064296875,
+        "n_instruments": 1,
+        "instruments": [
+          {
+            "index": 0,
+            "name": "Grand Piano",
+            "program": 0,
+            "is_drum": false,
+            "n_notes": 1042
+          }
+        ],
+        "total_notes": 1042,
+        "notes_per_sec": 4.5246038188534925,
+        "max_polyphony_approx": 10,
+        "key_signature_changes": [],
+        "time_signature_changes": [
+          {
+            "time": 0.0,
+            "numerator": 4,
+            "denominator": 4
+          }
+        ],
+        "tempo_changes": [
+          {
+            "time": 0.0,
+            "bpm": 49.000031850020704
+          }
+        ],
+        "warnings": [
+          "no_key_signature_metadata"
+        ],
+        "qa_recommendation": "warn"
+      },
+      "qa_recommendation": "warn"
+    },
+    {
+      "entry_id": "L4_chopin_prelude_op28_no4_e_minor",
+      "original_filename": "f-f-chopin-prelude-op-28-no-4.mid",
+      "display_name": "Chopin \u2014 Prelude in E minor, Op. 28 No. 4",
+      "location": "03_MIDI_Data/candidate_intermediate_midi/f-f-chopin-prelude-op-28-no-4.mid",
+      "status": "candidate_moved_to_candidate_dir",
+      "source_license": "<TBD -- user to fill in exact source URL / license note>",
+      "expected_key": "E",
+      "expected_mode": "minor",
+      "texture_category": "minor mode + slow harmonic motion + accompaniment (2-track rh/lh piano reduction) + chromatic pressure",
+      "intended_benchmark_level": 4,
+      "recommended_scope": "full_piece",
+      "excerpt_note": "108.2s, 600 notes across 2 tracks (rh/lh) -- reasonable duration, likely usable in full; revisit if Phase 3G analysis proves too slow/dense to read clearly.",
+      "expected_challenge_pitch_class_baseline": "moderate-high: slow, chromatically-inflected harmony is a different failure mode than F\u00fcr Elise's classical-era diatonicism -- tests whether the baseline degrades gracefully or fails sharply under chromatic pressure.",
+      "expected_challenge_chord_id_ema_srn": "unknown -- combines minor-key ambiguity with chromaticism, a harder case than any prior test piece.",
+      "qa": {
+        "filename": "f-f-chopin-prelude-op-28-no-4.mid",
+        "path": "03_MIDI_Data/candidate_intermediate_midi/f-f-chopin-prelude-op-28-no-4.mid",
+        "load_ok": true,
+        "duration_sec": 108.21422800000002,
+        "n_instruments": 2,
+        "instruments": [
+          {
+            "index": 0,
+            "name": "rh:",
+            "program": 0,
+            "is_drum": false,
+            "n_notes": 79
+          },
+          {
+            "index": 1,
+            "name": "lh:",
+            "program": 0,
+            "is_drum": false,
+            "n_notes": 521
+          }
+        ],
+        "total_notes": 600,
+        "notes_per_sec": 5.54455741254283,
+        "max_polyphony_approx": 13,
+        "key_signature_changes": [],
+        "time_signature_changes": [
+          {
+            "time": 0.0,
+            "numerator": 2,
+            "denominator": 2
+          }
+        ],
+        "tempo_changes": [
+          {
+            "time": 0.0,
+            "bpm": 56.000029866682596
+          }
+        ],
+        "warnings": [
+          "no_key_signature_metadata"
+        ],
+        "qa_recommendation": "warn"
+      },
+      "qa_recommendation": "warn"
+    },
+    {
+      "entry_id": "L5_TBD_missing",
+      "original_filename": null,
+      "display_name": "TBD -- short, clear single-modulation piece (MISSING)",
+      "location": null,
+      "status": "missing_no_candidate_file_yet",
+      "source_license": null,
+      "expected_key": null,
+      "expected_mode": null,
+      "texture_category": "short piece with one clear modulation",
+      "intended_benchmark_level": 5,
+      "recommended_scope": null,
+      "excerpt_note": "No candidate file currently fills this role. Twinkle 12.mid has a real modulation but is too dense/ornamented to isolate it cleanly (per Phase 3D). None of the 4 newly added candidates are primarily modulation pieces (Bach Minuet and the two Chopin preludes stay in one key throughout; F\u00fcr Elise's later sections modulate but that's being deliberately excluded via the opening-theme-only excerpt). This slot remains open for a future addition.",
+      "expected_challenge_pitch_class_baseline": null,
+      "expected_challenge_chord_id_ema_srn": null,
+      "qa": null,
+      "qa_recommendation": "missing"
+    },
+    {
+      "entry_id": "L6_twinkle_12_mid",
+      "original_filename": "Twinkle 12.mid",
+      "display_name": "Mozart \u2014 12 Variations on 'Ah vous dirai-je, Maman' (existing reference, historically mislabeled as 'Twinkle 12')",
+      "location": "03_MIDI_Data/Twinkle 12.mid",
+      "status": "existing_reference_do_not_move_do_not_reprocess",
+      "source_license": "Already part of this workspace (see README.md); no action needed.",
+      "expected_key": "C",
+      "expected_mode": "major",
+      "texture_category": "high-stress ornamented variation + real embedded modulation (C -> Eb -> C)",
+      "intended_benchmark_level": 6,
+      "recommended_scope": "full_piece",
+      "excerpt_note": null,
+      "expected_challenge_pitch_class_baseline": "already characterized (Phase 2D/3B): tracks the real C->Eb->C modulation at 100%/89.6%/94.1% across anchor windows, but overall still shows more instability than Twinkle.mid (13-17 unique predicted keys).",
+      "expected_challenge_chord_id_ema_srn": "already characterized (Phase 1.5B): F-major bias dominates (~60% of predictions), only ~12-13% C major despite real embedded modulation.",
+      "qa": {
+        "note": "Not reprocessed by this script -- figures below as already documented in Phase 1.5A/2C reports.",
+        "duration_sec": 687.47,
+        "total_notes": 6294,
+        "n_instruments": 2,
+        "key_signature_changes": [
+          {
+            "time": 0.0,
+            "key_name": "C Major"
+          },
+          {
+            "time": 384.0,
+            "key_name": "Eb Major"
+          },
+          {
+            "time": 432.0,
+            "key_name": "C Major"
+          }
+        ]
+      },
+      "qa_recommendation": "pass (already validated across Phases 1.5-3D)"
+    }
+  ],
+  "extra_unassigned_entries": [
+    {
+      "entry_id": "EXTRA_chopin_prelude_op28_no2_a_minor",
+      "original_filename": "f-f-chopin-prelude-op-28-no-2.mid",
+      "display_name": "Chopin \u2014 Prelude in A minor, Op. 28 No. 2 (extra/backup candidate)",
+      "location": "03_MIDI_Data/candidate_intermediate_midi/f-f-chopin-prelude-op-28-no-2.mid",
+      "status": "candidate_moved_to_candidate_dir_unassigned_ladder_level",
+      "source_license": "<TBD -- user to fill in exact source URL / license note>",
+      "expected_key": "A",
+      "expected_mode": "minor",
+      "texture_category": "minor mode + slow, ambiguous/unstable harmony (famously tonally ambiguous piece) + accompaniment (2-track treble/bass reduction)",
+      "intended_benchmark_level": null,
+      "recommended_scope": "full_piece",
+      "excerpt_note": "76.7s, 342 notes -- reasonable duration. Not assigned a ladder slot in this plan (Level 3 is already filled by F\u00fcr Elise for the minor-key/relative-ambiguity role, Level 4 by the E minor prelude). Retained as a backup/extra minor-key example, notably harder than either -- this piece is well known for its own harmonic ambiguity even to human listeners -- worth reconsidering if Level 3 or 4 needs a harder replacement.",
+      "expected_challenge_pitch_class_baseline": "unknown, likely high given the piece's own reputation for harmonic ambiguity -- worth flagging as a stress-test candidate independent of the main ladder.",
+      "expected_challenge_chord_id_ema_srn": "unknown.",
+      "qa": {
+        "filename": "f-f-chopin-prelude-op-28-no-2.mid",
+        "path": "03_MIDI_Data/candidate_intermediate_midi/f-f-chopin-prelude-op-28-no-2.mid",
+        "load_ok": true,
+        "duration_sec": 76.66663600000001,
+        "n_instruments": 2,
+        "instruments": [
+          {
+            "index": 0,
+            "name": "treble:",
+            "program": 0,
+            "is_drum": false,
+            "n_notes": 61
+          },
+          {
+            "index": 1,
+            "name": "bass:",
+            "program": 0,
+            "is_drum": false,
+            "n_notes": 281
+          }
+        ],
+        "total_notes": 342,
+        "notes_per_sec": 4.460871349565931,
+        "max_polyphony_approx": 11,
+        "key_signature_changes": [],
+        "time_signature_changes": [
+          {
+            "time": 0.0,
+            "numerator": 4,
+            "denominator": 4
+          }
+        ],
+        "tempo_changes": [
+          {
+            "time": 0.0,
+            "bpm": 72.0000288000115
+          }
+        ],
+        "warnings": [
+          "no_key_signature_metadata"
+        ],
+        "qa_recommendation": "warn"
+      },
+      "qa_recommendation": "warn"
+    }
+  ],
+  "qa_thresholds": {
+    "long_file_threshold_sec": 300.0,
+    "dense_file_notes_per_sec": 8.0,
+    "many_instruments_threshold": 3
+  }
+}

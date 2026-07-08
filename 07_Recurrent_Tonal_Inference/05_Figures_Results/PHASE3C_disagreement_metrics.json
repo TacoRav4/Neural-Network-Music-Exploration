@@ -1,0 +1,205 @@
+{
+  "phase": "phase_3c_pitch_class_vs_chord_id_disagreement",
+  "twinkle_mid": {
+    "piece": "Twinkle.mid",
+    "window_sec": 0.5,
+    "n_chord_predictions": 106,
+    "chord_offset_windows": 0,
+    "alignment_max_time_error_sec": 0.0,
+    "srn_settings": {
+      "epochs": 25,
+      "lr": 0.001,
+      "hidden_size": 48,
+      "alpha_ema": 0.2
+    },
+    "high_tie_count_threshold": 8,
+    "overall_disagreement": {
+      "ema": 0.8773584905660378,
+      "srn": 1.0
+    },
+    "chord_model_own_instability": {
+      "ema": {
+        "n_key_switches": 20,
+        "n_large_jumps": 2,
+        "n_predictions": 106
+      },
+      "srn": {
+        "n_key_switches": 19,
+        "n_large_jumps": 0,
+        "n_predictions": 106
+      }
+    },
+    "overlap_with_pitch_class_difficulty_criteria": {
+      "ema": {
+        "pc_key_switch": {
+          "overall_disagreement_rate": 0.8773584905660378,
+          "n_criterion_windows": 0,
+          "criterion_fraction": 0.0,
+          "disagreement_rate_within_criterion": null,
+          "disagreement_rate_outside_criterion": 0.8773584905660378,
+          "concentration_ratio": null
+        },
+        "pc_large_jump": {
+          "overall_disagreement_rate": 0.8773584905660378,
+          "n_criterion_windows": 0,
+          "criterion_fraction": 0.0,
+          "disagreement_rate_within_criterion": null,
+          "disagreement_rate_outside_criterion": 0.8773584905660378,
+          "concentration_ratio": null
+        },
+        "pc_anchor_mismatch": {
+          "overall_disagreement_rate": 0.8773584905660378,
+          "n_criterion_windows": 0,
+          "criterion_fraction": 0.0,
+          "disagreement_rate_within_criterion": null,
+          "disagreement_rate_outside_criterion": 0.8773584905660378,
+          "concentration_ratio": null
+        },
+        "pc_high_tie_count": {
+          "overall_disagreement_rate": 0.8773584905660378,
+          "n_criterion_windows": 19,
+          "criterion_fraction": 0.1792452830188679,
+          "disagreement_rate_within_criterion": 0.9473684210526315,
+          "disagreement_rate_outside_criterion": 0.8620689655172413,
+          "concentration_ratio": 1.0989473684210527
+        }
+      },
+      "srn": {
+        "pc_key_switch": {
+          "overall_disagreement_rate": 1.0,
+          "n_criterion_windows": 0,
+          "criterion_fraction": 0.0,
+          "disagreement_rate_within_criterion": null,
+          "disagreement_rate_outside_criterion": 1.0,
+          "concentration_ratio": null
+        },
+        "pc_large_jump": {
+          "overall_disagreement_rate": 1.0,
+          "n_criterion_windows": 0,
+          "criterion_fraction": 0.0,
+          "disagreement_rate_within_criterion": null,
+          "disagreement_rate_outside_criterion": 1.0,
+          "concentration_ratio": null
+        },
+        "pc_anchor_mismatch": {
+          "overall_disagreement_rate": 1.0,
+          "n_criterion_windows": 0,
+          "criterion_fraction": 0.0,
+          "disagreement_rate_within_criterion": null,
+          "disagreement_rate_outside_criterion": 1.0,
+          "concentration_ratio": null
+        },
+        "pc_high_tie_count": {
+          "overall_disagreement_rate": 1.0,
+          "n_criterion_windows": 19,
+          "criterion_fraction": 0.1792452830188679,
+          "disagreement_rate_within_criterion": 1.0,
+          "disagreement_rate_outside_criterion": 1.0,
+          "concentration_ratio": 1.0
+        }
+      }
+    },
+    "note_on_low_margin": "low_margin is excluded as a standalone criterion (Phase 3B found it structurally saturated ~100% for both pieces due to SCALE_TEMPLATES ties); only key_switch, large_jump, anchor_mismatch, and high_tie_count are used here."
+  },
+  "twinkle_12_mid": {
+    "piece": "Twinkle 12.mid",
+    "window_sec": 0.5,
+    "n_chord_predictions": 1271,
+    "chord_offset_windows": 103,
+    "alignment_max_time_error_sec": 0.0,
+    "srn_settings": {
+      "epochs": 25,
+      "lr": 0.001,
+      "hidden_size": 48,
+      "alpha_ema": 0.2
+    },
+    "high_tie_count_threshold": 8,
+    "overall_disagreement": {
+      "ema": 0.90558615263572,
+      "srn": 0.8906372934697089
+    },
+    "chord_model_own_instability": {
+      "ema": {
+        "n_key_switches": 121,
+        "n_large_jumps": 52,
+        "n_predictions": 1271
+      },
+      "srn": {
+        "n_key_switches": 110,
+        "n_large_jumps": 30,
+        "n_predictions": 1271
+      }
+    },
+    "overlap_with_pitch_class_difficulty_criteria": {
+      "ema": {
+        "pc_key_switch": {
+          "overall_disagreement_rate": 0.90558615263572,
+          "n_criterion_windows": 11,
+          "criterion_fraction": 0.00865460267505901,
+          "disagreement_rate_within_criterion": 0.8181818181818182,
+          "disagreement_rate_outside_criterion": 0.9063492063492063,
+          "concentration_ratio": 0.9027224964177679
+        },
+        "pc_large_jump": {
+          "overall_disagreement_rate": 0.90558615263572,
+          "n_criterion_windows": 5,
+          "criterion_fraction": 0.003933910306845004,
+          "disagreement_rate_within_criterion": 0.6,
+          "disagreement_rate_outside_criterion": 0.9067930489731437,
+          "concentration_ratio": 0.6616724738675959
+        },
+        "pc_anchor_mismatch": {
+          "overall_disagreement_rate": 0.90558615263572,
+          "n_criterion_windows": 40,
+          "criterion_fraction": 0.03147128245476003,
+          "disagreement_rate_within_criterion": 0.75,
+          "disagreement_rate_outside_criterion": 0.9106417546709992,
+          "concentration_ratio": 0.8235950044603033
+        },
+        "pc_high_tie_count": {
+          "overall_disagreement_rate": 0.90558615263572,
+          "n_criterion_windows": 676,
+          "criterion_fraction": 0.5318646734854445,
+          "disagreement_rate_within_criterion": 0.9807692307692307,
+          "disagreement_rate_outside_criterion": 0.8201680672268907,
+          "concentration_ratio": 1.195814943253468
+        }
+      },
+      "srn": {
+        "pc_key_switch": {
+          "overall_disagreement_rate": 0.8906372934697089,
+          "n_criterion_windows": 11,
+          "criterion_fraction": 0.00865460267505901,
+          "disagreement_rate_within_criterion": 0.8181818181818182,
+          "disagreement_rate_outside_criterion": 0.8912698412698413,
+          "concentration_ratio": 0.9179956285922448
+        },
+        "pc_large_jump": {
+          "overall_disagreement_rate": 0.8906372934697089,
+          "n_criterion_windows": 5,
+          "criterion_fraction": 0.003933910306845004,
+          "disagreement_rate_within_criterion": 1.0,
+          "disagreement_rate_outside_criterion": 0.8902053712480252,
+          "concentration_ratio": 1.1233362910381544
+        },
+        "pc_anchor_mismatch": {
+          "overall_disagreement_rate": 0.8906372934697089,
+          "n_criterion_windows": 40,
+          "criterion_fraction": 0.03147128245476003,
+          "disagreement_rate_within_criterion": 1.0,
+          "disagreement_rate_outside_criterion": 0.8870836718115354,
+          "concentration_ratio": 1.1272893772893773
+        },
+        "pc_high_tie_count": {
+          "overall_disagreement_rate": 0.8906372934697089,
+          "n_criterion_windows": 676,
+          "criterion_fraction": 0.5318646734854445,
+          "disagreement_rate_within_criterion": 0.9674556213017751,
+          "disagreement_rate_outside_criterion": 0.8033613445378152,
+          "concentration_ratio": 1.2042596122898663
+        }
+      }
+    },
+    "note_on_low_margin": "low_margin is excluded as a standalone criterion (Phase 3B found it structurally saturated ~100% for both pieces due to SCALE_TEMPLATES ties); only key_switch, large_jump, anchor_mismatch, and high_tie_count are used here."
+  }
+}
