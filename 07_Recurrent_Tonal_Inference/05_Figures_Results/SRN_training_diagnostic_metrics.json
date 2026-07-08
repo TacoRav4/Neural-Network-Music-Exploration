@@ -1,0 +1,306 @@
+{
+  "phase": "phase_1_synthetic_only_srn_training_diagnostic",
+  "seed": 269,
+  "dataset": {
+    "seed_base": 269,
+    "train_seed": 269,
+    "val_seed": 1269,
+    "test_seed": 2269,
+    "train_size": 400,
+    "val_size": 90,
+    "test_size": 100,
+    "length_range": [
+      16,
+      48
+    ],
+    "include_no_modulation": true
+  },
+  "baseline_reference": {
+    "source": "loaded_from_previous_run_comparison_json",
+    "source_path": "EMA_vs_SRN_synthetic_comparison_metrics.json",
+    "alpha": 0.2,
+    "metrics": {
+      "n_sequences": 100,
+      "n_timesteps": 5762,
+      "overall_accuracy": 0.7528635890315862,
+      "masked_accuracy_excl_ambiguous": 0.7551250281594953,
+      "ambiguous_timestep_accuracy": 0.745275888133031,
+      "ambiguous_timestep_count": 1323,
+      "modulation_accuracy": 0.7485380116959064,
+      "no_modulation_accuracy": 0.7879746835443038,
+      "pre_pivot_accuracy": 0.7746697746697747,
+      "post_pivot_accuracy": 0.7222222222222222,
+      "pivot_timestep_accuracy": 0.0375,
+      "modulation_lag": {
+        "n_modulation_sequences": 80,
+        "n_switch_success": 78,
+        "n_switch_failure": 2,
+        "switch_failure_rate": 0.025,
+        "mean_lag": 4.871794871794871,
+        "median_lag": 4.0,
+        "min_lag": 0.0,
+        "max_lag": 18.0
+      }
+    }
+  },
+  "sweep_settings": {
+    "epoch_values": [
+      10,
+      25,
+      50
+    ],
+    "lr_values": [
+      0.001,
+      0.003
+    ],
+    "hidden_size": 48
+  },
+  "sweep": [
+    {
+      "epochs": 10,
+      "lr": 0.001,
+      "hidden_size": 48,
+      "seed": 269,
+      "training": {
+        "final_train_loss": 0.834,
+        "final_train_acc": 0.72,
+        "final_val_loss": 0.8559,
+        "final_val_acc": 0.718
+      },
+      "test_metrics": {
+        "n_sequences": 100,
+        "n_timesteps": 5762,
+        "overall_accuracy": 0.7259632072197154,
+        "masked_accuracy_excl_ambiguous": 0.7292182924082,
+        "ambiguous_timestep_accuracy": 0.7150415721844293,
+        "ambiguous_timestep_count": 1323,
+        "modulation_accuracy": 0.7198830409356726,
+        "no_modulation_accuracy": 0.7753164556962026,
+        "pre_pivot_accuracy": 0.7319347319347319,
+        "post_pivot_accuracy": 0.7077464788732394,
+        "pivot_timestep_accuracy": 0.0375,
+        "modulation_lag": {
+          "n_modulation_sequences": 80,
+          "n_switch_success": 79,
+          "n_switch_failure": 1,
+          "switch_failure_rate": 0.0125,
+          "mean_lag": 5.7215189873417724,
+          "median_lag": 4.0,
+          "min_lag": 0.0,
+          "max_lag": 34.0
+        }
+      }
+    },
+    {
+      "epochs": 10,
+      "lr": 0.003,
+      "hidden_size": 48,
+      "seed": 269,
+      "training": {
+        "final_train_loss": 0.7973,
+        "final_train_acc": 0.705,
+        "final_val_loss": 0.8025,
+        "final_val_acc": 0.715
+      },
+      "test_metrics": {
+        "n_sequences": 100,
+        "n_timesteps": 5762,
+        "overall_accuracy": 0.7270045123221104,
+        "masked_accuracy_excl_ambiguous": 0.7384546068934444,
+        "ambiguous_timestep_accuracy": 0.6885865457294029,
+        "ambiguous_timestep_count": 1323,
+        "modulation_accuracy": 0.7269005847953216,
+        "no_modulation_accuracy": 0.7278481012658228,
+        "pre_pivot_accuracy": 0.7455322455322455,
+        "post_pivot_accuracy": 0.7081377151799687,
+        "pivot_timestep_accuracy": 0.0625,
+        "modulation_lag": {
+          "n_modulation_sequences": 80,
+          "n_switch_success": 78,
+          "n_switch_failure": 2,
+          "switch_failure_rate": 0.025,
+          "mean_lag": 5.589743589743589,
+          "median_lag": 4.0,
+          "min_lag": 0.0,
+          "max_lag": 29.0
+        }
+      }
+    },
+    {
+      "epochs": 25,
+      "lr": 0.001,
+      "hidden_size": 48,
+      "seed": 269,
+      "training": {
+        "final_train_loss": 0.6173,
+        "final_train_acc": 0.794,
+        "final_val_loss": 0.6622,
+        "final_val_acc": 0.78
+      },
+      "test_metrics": {
+        "n_sequences": 100,
+        "n_timesteps": 5762,
+        "overall_accuracy": 0.8101353696633113,
+        "masked_accuracy_excl_ambiguous": 0.8164000901103852,
+        "ambiguous_timestep_accuracy": 0.7891156462585034,
+        "ambiguous_timestep_count": 1323,
+        "modulation_accuracy": 0.8009746588693957,
+        "no_modulation_accuracy": 0.884493670886076,
+        "pre_pivot_accuracy": 0.8341103341103341,
+        "post_pivot_accuracy": 0.7676056338028169,
+        "pivot_timestep_accuracy": 0.025,
+        "modulation_lag": {
+          "n_modulation_sequences": 80,
+          "n_switch_success": 77,
+          "n_switch_failure": 3,
+          "switch_failure_rate": 0.0375,
+          "mean_lag": 5.376623376623376,
+          "median_lag": 4.0,
+          "min_lag": 0.0,
+          "max_lag": 34.0
+        }
+      }
+    },
+    {
+      "epochs": 25,
+      "lr": 0.003,
+      "hidden_size": 48,
+      "seed": 269,
+      "training": {
+        "final_train_loss": 0.9061,
+        "final_train_acc": 0.686,
+        "final_val_loss": 0.8653,
+        "final_val_acc": 0.684
+      },
+      "test_metrics": {
+        "n_sequences": 100,
+        "n_timesteps": 5762,
+        "overall_accuracy": 0.6601874349184311,
+        "masked_accuracy_excl_ambiguous": 0.664564091011489,
+        "ambiguous_timestep_accuracy": 0.6455026455026455,
+        "ambiguous_timestep_count": 1323,
+        "modulation_accuracy": 0.6567251461988304,
+        "no_modulation_accuracy": 0.6882911392405063,
+        "pre_pivot_accuracy": 0.7097902097902098,
+        "post_pivot_accuracy": 0.6032863849765259,
+        "pivot_timestep_accuracy": 0.125,
+        "modulation_lag": {
+          "n_modulation_sequences": 80,
+          "n_switch_success": 74,
+          "n_switch_failure": 6,
+          "switch_failure_rate": 0.075,
+          "mean_lag": 6.54054054054054,
+          "median_lag": 4.0,
+          "min_lag": 0.0,
+          "max_lag": 28.0
+        }
+      }
+    },
+    {
+      "epochs": 50,
+      "lr": 0.001,
+      "hidden_size": 48,
+      "seed": 269,
+      "training": {
+        "final_train_loss": 0.4688,
+        "final_train_acc": 0.845,
+        "final_val_loss": 0.6489,
+        "final_val_acc": 0.785
+      },
+      "test_metrics": {
+        "n_sequences": 100,
+        "n_timesteps": 5762,
+        "overall_accuracy": 0.8040610898993406,
+        "masked_accuracy_excl_ambiguous": 0.8112187429601262,
+        "ambiguous_timestep_accuracy": 0.780045351473923,
+        "ambiguous_timestep_count": 1323,
+        "modulation_accuracy": 0.7953216374269005,
+        "no_modulation_accuracy": 0.875,
+        "pre_pivot_accuracy": 0.8158508158508159,
+        "post_pivot_accuracy": 0.7746478873239436,
+        "pivot_timestep_accuracy": 0.0125,
+        "modulation_lag": {
+          "n_modulation_sequences": 80,
+          "n_switch_success": 76,
+          "n_switch_failure": 4,
+          "switch_failure_rate": 0.05,
+          "mean_lag": 5.118421052631579,
+          "median_lag": 4.0,
+          "min_lag": 0.0,
+          "max_lag": 34.0
+        }
+      }
+    },
+    {
+      "epochs": 50,
+      "lr": 0.003,
+      "hidden_size": 48,
+      "seed": 269,
+      "training": {
+        "final_train_loss": 0.6248,
+        "final_train_acc": 0.783,
+        "final_val_loss": 0.7128,
+        "final_val_acc": 0.758
+      },
+      "test_metrics": {
+        "n_sequences": 100,
+        "n_timesteps": 5762,
+        "overall_accuracy": 0.7599791738979521,
+        "masked_accuracy_excl_ambiguous": 0.7618833070511376,
+        "ambiguous_timestep_accuracy": 0.7535903250188964,
+        "ambiguous_timestep_count": 1323,
+        "modulation_accuracy": 0.7592592592592593,
+        "no_modulation_accuracy": 0.7658227848101266,
+        "pre_pivot_accuracy": 0.7816627816627817,
+        "post_pivot_accuracy": 0.736697965571205,
+        "pivot_timestep_accuracy": 0.1,
+        "modulation_lag": {
+          "n_modulation_sequences": 80,
+          "n_switch_success": 79,
+          "n_switch_failure": 1,
+          "switch_failure_rate": 0.0125,
+          "mean_lag": 4.367088607594937,
+          "median_lag": 3.0,
+          "min_lag": 0.0,
+          "max_lag": 17.0
+        }
+      }
+    }
+  ],
+  "best_condition": {
+    "epochs": 25,
+    "lr": 0.001,
+    "hidden_size": 48,
+    "seed": 269,
+    "training": {
+      "final_train_loss": 0.6173,
+      "final_train_acc": 0.794,
+      "final_val_loss": 0.6622,
+      "final_val_acc": 0.78
+    },
+    "test_metrics": {
+      "n_sequences": 100,
+      "n_timesteps": 5762,
+      "overall_accuracy": 0.8101353696633113,
+      "masked_accuracy_excl_ambiguous": 0.8164000901103852,
+      "ambiguous_timestep_accuracy": 0.7891156462585034,
+      "ambiguous_timestep_count": 1323,
+      "modulation_accuracy": 0.8009746588693957,
+      "no_modulation_accuracy": 0.884493670886076,
+      "pre_pivot_accuracy": 0.8341103341103341,
+      "post_pivot_accuracy": 0.7676056338028169,
+      "pivot_timestep_accuracy": 0.025,
+      "modulation_lag": {
+        "n_modulation_sequences": 80,
+        "n_switch_success": 77,
+        "n_switch_failure": 3,
+        "switch_failure_rate": 0.0375,
+        "mean_lag": 5.376623376623376,
+        "median_lag": 4.0,
+        "min_lag": 0.0,
+        "max_lag": 34.0
+      }
+    }
+  },
+  "notes": "Synthetic-only Phase 1 diagnostic. Sweeps SRN epochs x learning rate at fixed hidden_size=48 and unchanged Elman architecture; does not sweep hidden size. Does not evaluate Twinkle.mid or Twinkle 12.mid."
+}

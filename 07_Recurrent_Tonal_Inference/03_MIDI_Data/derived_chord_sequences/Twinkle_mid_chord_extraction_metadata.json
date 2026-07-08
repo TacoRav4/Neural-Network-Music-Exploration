@@ -1,0 +1,61 @@
+{
+  "midi_path": "03_MIDI_Data/Twinkle.mid",
+  "duration_sec": 53.052552,
+  "window_sec": 0.5,
+  "memory_decay": 0.6,
+  "n_chroma_windows": 106,
+  "n_chord_ids": 106,
+  "total_notes": 84,
+  "n_instruments": 1,
+  "chord_histogram": {
+    "C:maj": 57,
+    "D:maj": 16,
+    "C#:maj": 6,
+    "A#:maj": 12,
+    "F:maj": 9,
+    "G:maj": 6
+  },
+  "top_chords": [
+    [
+      "C:maj",
+      57
+    ],
+    [
+      "D:maj",
+      16
+    ],
+    [
+      "A#:maj",
+      12
+    ],
+    [
+      "F:maj",
+      9
+    ],
+    [
+      "C#:maj",
+      6
+    ],
+    [
+      "G:maj",
+      6
+    ]
+  ],
+  "first_15_decoded_chords": [
+    "C:maj",
+    "C:maj",
+    "C:maj",
+    "C:maj",
+    "C:maj",
+    "C:maj",
+    "D:maj",
+    "C:maj",
+    "C:maj",
+    "C:maj",
+    "C:maj",
+    "C#:maj",
+    "C:maj",
+    "C:maj",
+    "C:maj"
+  ]
+}

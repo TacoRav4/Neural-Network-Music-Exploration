@@ -1,0 +1,254 @@
+{
+  "phase": "phase_3b_pitch_class_uncertainty_diagnostics",
+  "twinkle_mid": {
+    "piece": "Twinkle.mid",
+    "settings": {
+      "window_sec": 0.5,
+      "low_margin_threshold": 0.2,
+      "large_jump_threshold": 3,
+      "entropy_temperature": 1.0
+    },
+    "alignment": {
+      "note": "prediction_times_sec = prediction_indices * window_sec, computed over the FULL saved chroma array (no leading windows dropped) -- see module docstring for why this avoids the Phase 2D offset_windows bug.",
+      "n_predictions": 106,
+      "n_chroma_windows_in_metadata": 106
+    },
+    "summary": {
+      "n_predictions": 106,
+      "n_active_windows": 106,
+      "active_fraction": 1.0,
+      "n_unique_predicted_keys": 1,
+      "unique_predicted_keys": [
+        "C maj"
+      ],
+      "n_key_switch_eligible_transitions": 105,
+      "n_key_switches": 0,
+      "key_switch_proportion": 0.0,
+      "mean_jump": 0.0,
+      "max_jump": 0.0,
+      "n_large_jumps": 0,
+      "large_jump_proportion": 0.0,
+      "n_low_margin_windows": 106,
+      "low_margin_proportion": 1.0,
+      "mean_normalized_margin": 0.0,
+      "mean_entropy": 1.6858700429598539,
+      "mean_tie_count_active_windows": 5.226415094339623,
+      "max_tie_count_active_windows": 14
+    },
+    "anchor_diagnostics": {
+      "full_piece": {
+        "expected_key": "C Major",
+        "start_sec": 0.0,
+        "end_sec": null,
+        "n_predictions": 106,
+        "n_defined": 106,
+        "proportion_expected_key": 1.0,
+        "mismatch_count": 0,
+        "mismatch_intervals": [],
+        "low_margin_proportion": 1.0,
+        "mean_normalized_margin": 0.0,
+        "mean_entropy": 1.6858700429598539
+      }
+    },
+    "difficulty_criterion_counts": {
+      "low_margin": 106,
+      "key_switch": 0,
+      "large_jump": 0,
+      "anchor_mismatch": 0,
+      "any_difficult": 106
+    },
+    "difficulty_criterion_proportions": {
+      "low_margin": 1.0,
+      "key_switch": 0.0,
+      "large_jump": 0.0,
+      "anchor_mismatch": 0.0,
+      "any_difficult": 1.0
+    },
+    "difficult_intervals": [
+      {
+        "start_idx": 0,
+        "end_idx": 106,
+        "start_sec": 0.0,
+        "end_sec": 52.5
+      }
+    ],
+    "n_difficult_intervals": 1,
+    "saved_arrays": {
+      "raw_scores": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_raw_scores.npy",
+      "active": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_active.npy",
+      "key_id": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_key_id.npy",
+      "top1_score": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_top1_score.npy",
+      "top2_score": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_top2_score.npy",
+      "raw_margin": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_raw_margin.npy",
+      "normalized_margin": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_normalized_margin.npy",
+      "entropy": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_entropy.npy",
+      "tie_count": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_tie_count.npy",
+      "key_switch": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_key_switch.npy",
+      "jump_distance": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_jump_distance.npy",
+      "large_jump": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_large_jump.npy",
+      "low_margin": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_low_margin.npy",
+      "prediction_indices": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_prediction_indices.npy",
+      "prediction_times_sec": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_mid_prediction_times_sec.npy"
+    },
+    "notes": "Phase 3B diagnostic output. No predictions were changed, no model was trained, no neural refinement (Chroma SRN, Transformer) was implemented. Does not compare against chord-id EMA/SRN outputs -- that is Phase 3C."
+  },
+  "twinkle_12_mid": {
+    "piece": "Twinkle 12.mid",
+    "settings": {
+      "window_sec": 0.5,
+      "low_margin_threshold": 0.2,
+      "large_jump_threshold": 3,
+      "entropy_temperature": 1.0
+    },
+    "alignment": {
+      "note": "prediction_times_sec = prediction_indices * window_sec, computed over the FULL saved chroma array (no leading windows dropped) -- see module docstring for why this avoids the Phase 2D offset_windows bug.",
+      "n_predictions": 1374,
+      "n_chroma_windows_in_metadata": 1374
+    },
+    "summary": {
+      "n_predictions": 1374,
+      "n_active_windows": 1271,
+      "active_fraction": 0.9250363901018923,
+      "n_unique_predicted_keys": 4,
+      "unique_predicted_keys": [
+        "C maj",
+        "D# maj",
+        "G maj",
+        "A# maj"
+      ],
+      "n_key_switch_eligible_transitions": 1270,
+      "n_key_switches": 11,
+      "key_switch_proportion": 0.008661417322834646,
+      "mean_jump": 0.01732283464566929,
+      "max_jump": 3.0,
+      "n_large_jumps": 5,
+      "large_jump_proportion": 0.003937007874015748,
+      "n_low_margin_windows": 1271,
+      "low_margin_proportion": 0.9250363901018923,
+      "mean_normalized_margin": 0.0,
+      "mean_entropy": 2.4003326561838776,
+      "mean_tie_count_active_windows": 6.709677419354839,
+      "max_tie_count_active_windows": 14
+    },
+    "anchor_diagnostics": {
+      "pre_384s": {
+        "expected_key": "C Major",
+        "start_sec": 0.0,
+        "end_sec": 384.0,
+        "n_predictions": 768,
+        "n_defined": 665,
+        "proportion_expected_key": 1.0,
+        "mismatch_count": 0,
+        "mismatch_intervals": [],
+        "low_margin_proportion": 1.0,
+        "mean_normalized_margin": 0.0,
+        "mean_entropy": 2.490656972171434
+      },
+      "384_to_432s": {
+        "expected_key": "Eb Major",
+        "start_sec": 384.0,
+        "end_sec": 432.0,
+        "n_predictions": 96,
+        "n_defined": 96,
+        "proportion_expected_key": 0.8958333333333334,
+        "mismatch_count": 10,
+        "mismatch_intervals": [
+          {
+            "start_idx": 768,
+            "end_idx": 772,
+            "start_sec": 384.0,
+            "end_sec": 385.5
+          },
+          {
+            "start_idx": 802,
+            "end_idx": 805,
+            "start_sec": 401.0,
+            "end_sec": 402.0
+          },
+          {
+            "start_idx": 834,
+            "end_idx": 837,
+            "start_sec": 417.0,
+            "end_sec": 418.0
+          }
+        ],
+        "low_margin_proportion": 1.0,
+        "mean_normalized_margin": 0.0,
+        "mean_entropy": 1.6018030004725823
+      },
+      "post_432s": {
+        "expected_key": "C Major",
+        "start_sec": 432.0,
+        "end_sec": null,
+        "n_predictions": 510,
+        "n_defined": 510,
+        "proportion_expected_key": 0.9411764705882353,
+        "mismatch_count": 30,
+        "mismatch_intervals": [
+          {
+            "start_idx": 864,
+            "end_idx": 870,
+            "start_sec": 432.0,
+            "end_sec": 434.5
+          },
+          {
+            "start_idx": 1122,
+            "end_idx": 1134,
+            "start_sec": 561.0,
+            "end_sec": 566.5
+          },
+          {
+            "start_idx": 1170,
+            "end_idx": 1182,
+            "start_sec": 585.0,
+            "end_sec": 590.5
+          }
+        ],
+        "low_margin_proportion": 1.0,
+        "mean_normalized_margin": 0.0,
+        "mean_entropy": 2.2757991671596765
+      }
+    },
+    "difficulty_criterion_counts": {
+      "low_margin": 1271,
+      "key_switch": 11,
+      "large_jump": 5,
+      "anchor_mismatch": 40,
+      "any_difficult": 1271
+    },
+    "difficulty_criterion_proportions": {
+      "low_margin": 0.9250363901018923,
+      "key_switch": 0.008005822416302766,
+      "large_jump": 0.00363901018922853,
+      "anchor_mismatch": 0.02911208151382824,
+      "any_difficult": 0.9250363901018923
+    },
+    "difficult_intervals": [
+      {
+        "start_idx": 103,
+        "end_idx": 1374,
+        "start_sec": 51.5,
+        "end_sec": 686.5
+      }
+    ],
+    "n_difficult_intervals": 1,
+    "saved_arrays": {
+      "raw_scores": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_raw_scores.npy",
+      "active": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_active.npy",
+      "key_id": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_key_id.npy",
+      "top1_score": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_top1_score.npy",
+      "top2_score": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_top2_score.npy",
+      "raw_margin": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_raw_margin.npy",
+      "normalized_margin": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_normalized_margin.npy",
+      "entropy": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_entropy.npy",
+      "tie_count": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_tie_count.npy",
+      "key_switch": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_key_switch.npy",
+      "jump_distance": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_jump_distance.npy",
+      "large_jump": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_large_jump.npy",
+      "low_margin": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_low_margin.npy",
+      "prediction_indices": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_prediction_indices.npy",
+      "prediction_times_sec": "03_MIDI_Data/derived_phase3_diagnostics/Twinkle_12_mid_prediction_times_sec.npy"
+    },
+    "notes": "Phase 3B diagnostic output. No predictions were changed, no model was trained, no neural refinement (Chroma SRN, Transformer) was implemented. Does not compare against chord-id EMA/SRN outputs -- that is Phase 3C."
+  }
+}
