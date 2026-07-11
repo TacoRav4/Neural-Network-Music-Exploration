@@ -2,7 +2,7 @@
 
 Living status file to prevent black-box drift. Update this alongside any future change to this workspace.
 
-**Starting a new session on Phase 3G or later? Read `HANDOFF_PHASE3G.md` first** — it summarizes this entire log, the confirmed 6-level benchmark ladder, the two confirmed excerpt files, reusable module conventions/thresholds, two previously-caught bugs not to reintroduce, and the important caveat that Phase 2C/2D/3B/3C scripts are hardcoded to Twinkle.mid/Twinkle 12.mid only and cannot be run as-is on the new corpus.
+**Starting a new session (any machine)? Read `HANDOFF_CURRENT.md` first** — it is the evergreen, always-current entry point (updated at each checkpoint) and the fastest way to orient without re-exploring the repo. `HANDOFF_PHASE3G.md` remains as a frozen, historical entry point written specifically for Phase 3G — it summarizes the confirmed 6-level benchmark ladder, the two confirmed excerpt files, reusable module conventions/thresholds, two previously-caught bugs not to reintroduce, and the important caveat that Phase 2C/2D/3B/3C scripts are hardcoded to Twinkle.mid/Twinkle 12.mid only and cannot be run as-is on the new corpus — still worth reading for that specific depth, but no longer the first stop.
 
 ## 1. Project state
 
