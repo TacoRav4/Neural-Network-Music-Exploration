@@ -1,0 +1,2544 @@
+{
+  "phase": "phase_3h_b_texture_gated_resolver",
+  "based_on_frozen": [
+    "PHASE3G_A_pitch_class_corpus_metrics.json (read-only)",
+    "PHASE3G_B_tie_aware_diagnostics_metrics.json (read-only)",
+    "PHASE3H_A_tonic_mode_resolver_metrics.json (read-only)",
+    "03_MIDI_Data/derived_phase3g_corpus/*.npy (read-only)"
+  ],
+  "settings": {
+    "window_sec": 0.5,
+    "memory_decay": 0.8,
+    "threshold_ratio": 0.1,
+    "large_jump_threshold": 3
+  },
+  "gate_settings": {
+    "density_threshold_active_pc_count_gt": 2,
+    "stability_window_windows": 4,
+    "stability_window_sec": 2.0,
+    "margin_threshold": 0.2,
+    "margin_threshold_source": "pitch_class_uncertainty_diagnostics.DEFAULT_LOW_MARGIN_THRESHOLD (reused verbatim, not re-tuned)",
+    "margin_metric": "normalized top1-vs-top2 score margin computed on the WEIGHTED (variant D) raw scores",
+    "default_backbone": "C (tie-aware continuity) -- documented design choice, see module docstring"
+  },
+  "weighted_key_profile_reused_from_phase_3h_a": {
+    "degree_role_names": [
+      "tonic",
+      "supertonic",
+      "mediant",
+      "subdominant",
+      "dominant",
+      "submediant",
+      "leading-tone/subtonic"
+    ],
+    "functional_weights": [
+      5,
+      1,
+      3,
+      2,
+      4,
+      1,
+      1
+    ],
+    "maj_intervals": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      11
+    ],
+    "min_intervals": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      10
+    ]
+  },
+  "pieces": {
+    "L1": {
+      "display_name": "Twinkle.mid",
+      "variants": {
+        "A_control": {
+          "piece_level": {
+            "n_predictions": 106,
+            "n_active": 106,
+            "active_fraction": 1.0,
+            "n_unique_predicted_keys": 1,
+            "unique_predicted_keys": [
+              "C maj"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "C maj",
+                "count": 106,
+                "fraction": 1.0
+              }
+            ],
+            "n_key_switch_eligible_transitions": 105,
+            "n_key_switches": 0,
+            "key_switch_proportion": 0.0,
+            "mean_jump": 0.0,
+            "max_jump": 0.0,
+            "n_large_jumps": 0,
+            "large_jump_proportion": 0.0,
+            "mean_tie_count_active_windows": 5.226415094339623,
+            "max_tie_count_active_windows": 14,
+            "n_windows_predicted_minor_mode": 0,
+            "fraction_defined_windows_predicted_minor_mode": 0.0
+          },
+          "anchors": {
+            "full_piece": {
+              "expected_key": "C Major",
+              "n_predictions": 106,
+              "n_defined": 106,
+              "strict_expected_key_proportion": 1.0,
+              "collection_equivalent_key": "A min",
+              "collection_equivalent_proportion": 1.0,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 106,
+                "n_selected_when_tied": 106,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {},
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            }
+          }
+        },
+        "D_weighted_profile": {
+          "piece_level": {
+            "n_predictions": 106,
+            "n_active": 106,
+            "active_fraction": 1.0,
+            "n_unique_predicted_keys": 7,
+            "unique_predicted_keys": [
+              "C maj",
+              "F maj",
+              "G maj",
+              "D min",
+              "E min",
+              "G min",
+              "A min"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "C maj",
+                "count": 38,
+                "fraction": 0.3584905660377358
+              },
+              {
+                "key": "D min",
+                "count": 19,
+                "fraction": 0.1792452830188679
+              },
+              {
+                "key": "G maj",
+                "count": 14,
+                "fraction": 0.1320754716981132
+              },
+              {
+                "key": "E min",
+                "count": 12,
+                "fraction": 0.11320754716981132
+              },
+              {
+                "key": "F maj",
+                "count": 11,
+                "fraction": 0.10377358490566038
+              }
+            ],
+            "n_key_switch_eligible_transitions": 105,
+            "n_key_switches": 45,
+            "key_switch_proportion": 0.42857142857142855,
+            "mean_jump": 0.780952380952381,
+            "max_jump": 5.0,
+            "n_large_jumps": 8,
+            "large_jump_proportion": 0.0761904761904762,
+            "mean_tie_count_active_windows": 1.1226415094339623,
+            "max_tie_count_active_windows": 2,
+            "n_windows_predicted_minor_mode": 43,
+            "fraction_defined_windows_predicted_minor_mode": 0.4056603773584906
+          },
+          "anchors": {
+            "full_piece": {
+              "expected_key": "C Major",
+              "n_predictions": 106,
+              "n_defined": 106,
+              "strict_expected_key_proportion": 0.3584905660377358,
+              "collection_equivalent_key": "A min",
+              "collection_equivalent_proportion": 0.42452830188679247,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 38,
+                "n_selected_when_tied": 38,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {
+                "A min": 7,
+                "G maj": 14,
+                "G min": 5,
+                "F maj": 11,
+                "E min": 12,
+                "D min": 19
+              },
+              "n_windows_predicted_minor_mode": 43,
+              "fraction_defined_windows_predicted_minor_mode": 0.4056603773584906
+            }
+          }
+        },
+        "E_texture_gated": {
+          "piece_level": {
+            "n_predictions": 106,
+            "n_active": 106,
+            "active_fraction": 1.0,
+            "n_unique_predicted_keys": 2,
+            "unique_predicted_keys": [
+              "C maj",
+              "D min"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "C maj",
+                "count": 105,
+                "fraction": 0.9905660377358491
+              },
+              {
+                "key": "D min",
+                "count": 1,
+                "fraction": 0.009433962264150943
+              }
+            ],
+            "n_key_switch_eligible_transitions": 105,
+            "n_key_switches": 2,
+            "key_switch_proportion": 0.01904761904761905,
+            "mean_jump": 0.0380952380952381,
+            "max_jump": 2.0,
+            "n_large_jumps": 0,
+            "large_jump_proportion": 0.0,
+            "mean_tie_count_active_windows": 5.19811320754717,
+            "max_tie_count_active_windows": 14,
+            "n_windows_predicted_minor_mode": 1,
+            "fraction_defined_windows_predicted_minor_mode": 0.009433962264150943
+          },
+          "anchors": {
+            "full_piece": {
+              "expected_key": "C Major",
+              "n_predictions": 106,
+              "n_defined": 106,
+              "strict_expected_key_proportion": 0.9905660377358491,
+              "collection_equivalent_key": "A min",
+              "collection_equivalent_proportion": 0.9905660377358491,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 105,
+                "n_selected_when_tied": 105,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {
+                "D min": 1
+              },
+              "n_windows_predicted_minor_mode": 1,
+              "fraction_defined_windows_predicted_minor_mode": 0.009433962264150943
+            }
+          },
+          "gate_diagnostics": {
+            "n_windows": 106,
+            "n_gate1_density_pass": 100,
+            "gate1_pass_fraction": 0.9433962264150944,
+            "n_gate2_stability_pass": 102,
+            "gate2_pass_fraction": 0.9622641509433962,
+            "n_gate3_margin_pass": 1,
+            "gate3_pass_fraction": 0.009433962264150943,
+            "n_all_gates_pass_weighted_eligible": 1,
+            "all_gates_pass_fraction": 0.009433962264150943,
+            "n_actual_swaps_from_default": 1,
+            "actual_swap_fraction": 0.009433962264150943,
+            "n_swaps_to_minor_mode": 1,
+            "settings": {
+              "density_threshold_active_pc_count_gt": 2,
+              "stability_window_windows": 4,
+              "stability_window_sec": 2.0,
+              "margin_threshold": 0.2,
+              "margin_threshold_source": "pitch_class_uncertainty_diagnostics.DEFAULT_LOW_MARGIN_THRESHOLD (reused verbatim, not re-tuned)",
+              "margin_metric": "normalized top1-vs-top2 score margin computed on the WEIGHTED (variant D) raw scores",
+              "default_backbone": "C (tie-aware continuity) -- documented design choice, see module docstring"
+            }
+          }
+        }
+      },
+      "context_C_tie_aware_continuity": {
+        "piece_level": {
+          "n_predictions": 106,
+          "n_active": 106,
+          "active_fraction": 1.0,
+          "n_unique_predicted_keys": 1,
+          "unique_predicted_keys": [
+            "C maj"
+          ],
+          "dominant_predicted_keys": [
+            {
+              "key": "C maj",
+              "count": 106,
+              "fraction": 1.0
+            }
+          ],
+          "n_key_switch_eligible_transitions": 105,
+          "n_key_switches": 0,
+          "key_switch_proportion": 0.0,
+          "mean_jump": 0.0,
+          "max_jump": 0.0,
+          "n_large_jumps": 0,
+          "large_jump_proportion": 0.0,
+          "mean_tie_count_active_windows": 5.226415094339623,
+          "max_tie_count_active_windows": 14,
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        }
+      }
+    },
+    "L2": {
+      "display_name": "Bach \u2014 Minuet in G Major, BWV Anh. 114",
+      "variants": {
+        "A_control": {
+          "piece_level": {
+            "n_predictions": 164,
+            "n_active": 164,
+            "active_fraction": 1.0,
+            "n_unique_predicted_keys": 3,
+            "unique_predicted_keys": [
+              "C maj",
+              "D maj",
+              "G maj"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "G maj",
+                "count": 69,
+                "fraction": 0.42073170731707316
+              },
+              {
+                "key": "C maj",
+                "count": 49,
+                "fraction": 0.29878048780487804
+              },
+              {
+                "key": "D maj",
+                "count": 46,
+                "fraction": 0.2804878048780488
+              }
+            ],
+            "n_key_switch_eligible_transitions": 163,
+            "n_key_switches": 12,
+            "key_switch_proportion": 0.0736196319018405,
+            "mean_jump": 0.07975460122699386,
+            "max_jump": 2.0,
+            "n_large_jumps": 0,
+            "large_jump_proportion": 0.0,
+            "mean_tie_count_active_windows": 3.1463414634146343,
+            "max_tie_count_active_windows": 6,
+            "n_windows_predicted_minor_mode": 0,
+            "fraction_defined_windows_predicted_minor_mode": 0.0
+          },
+          "anchors": {
+            "full_piece": {
+              "expected_key": "G Major",
+              "n_predictions": 164,
+              "n_defined": 164,
+              "strict_expected_key_proportion": 0.42073170731707316,
+              "collection_equivalent_key": "E min",
+              "collection_equivalent_proportion": 0.42073170731707316,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 142,
+                "n_selected_when_tied": 69,
+                "n_lost_to_tiebreak": 73
+              },
+              "mismatch_predicted_key_breakdown": {
+                "C maj": 49,
+                "D maj": 46
+              },
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            }
+          },
+          "bach_tonic_neighborhood": {
+            "n_mismatched_windows": 95,
+            "n_within_CGD_tonic_neighborhood": 95,
+            "proportion_within_CGD_tonic_neighborhood": 1.0,
+            "mismatch_breakdown": {
+              "C maj": 49,
+              "D maj": 46
+            }
+          }
+        },
+        "D_weighted_profile": {
+          "piece_level": {
+            "n_predictions": 164,
+            "n_active": 164,
+            "active_fraction": 1.0,
+            "n_unique_predicted_keys": 8,
+            "unique_predicted_keys": [
+              "C maj",
+              "D maj",
+              "G maj",
+              "A maj",
+              "E min",
+              "F# min",
+              "A min",
+              "B min"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "G maj",
+                "count": 99,
+                "fraction": 0.6036585365853658
+              },
+              {
+                "key": "D maj",
+                "count": 42,
+                "fraction": 0.25609756097560976
+              },
+              {
+                "key": "C maj",
+                "count": 9,
+                "fraction": 0.054878048780487805
+              },
+              {
+                "key": "A min",
+                "count": 6,
+                "fraction": 0.036585365853658534
+              },
+              {
+                "key": "B min",
+                "count": 3,
+                "fraction": 0.018292682926829267
+              }
+            ],
+            "n_key_switch_eligible_transitions": 163,
+            "n_key_switches": 50,
+            "key_switch_proportion": 0.3067484662576687,
+            "mean_jump": 0.5030674846625767,
+            "max_jump": 4.0,
+            "n_large_jumps": 10,
+            "large_jump_proportion": 0.06134969325153374,
+            "mean_tie_count_active_windows": 1.0,
+            "max_tie_count_active_windows": 1,
+            "n_windows_predicted_minor_mode": 13,
+            "fraction_defined_windows_predicted_minor_mode": 0.07926829268292683
+          },
+          "anchors": {
+            "full_piece": {
+              "expected_key": "G Major",
+              "n_predictions": 164,
+              "n_defined": 164,
+              "strict_expected_key_proportion": 0.6036585365853658,
+              "collection_equivalent_key": "E min",
+              "collection_equivalent_proportion": 0.6158536585365854,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 99,
+                "n_selected_when_tied": 99,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {
+                "C maj": 9,
+                "D maj": 42,
+                "B min": 3,
+                "A min": 6,
+                "F# min": 2,
+                "E min": 2,
+                "A maj": 1
+              },
+              "n_windows_predicted_minor_mode": 13,
+              "fraction_defined_windows_predicted_minor_mode": 0.07926829268292683
+            }
+          },
+          "bach_tonic_neighborhood": {
+            "n_mismatched_windows": 65,
+            "n_within_CGD_tonic_neighborhood": 51,
+            "proportion_within_CGD_tonic_neighborhood": 0.7846153846153846,
+            "mismatch_breakdown": {
+              "C maj": 9,
+              "D maj": 42,
+              "B min": 3,
+              "A min": 6,
+              "F# min": 2,
+              "E min": 2,
+              "A maj": 1
+            }
+          }
+        },
+        "E_texture_gated": {
+          "piece_level": {
+            "n_predictions": 164,
+            "n_active": 164,
+            "active_fraction": 1.0,
+            "n_unique_predicted_keys": 3,
+            "unique_predicted_keys": [
+              "C maj",
+              "D maj",
+              "G maj"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "G maj",
+                "count": 125,
+                "fraction": 0.7621951219512195
+              },
+              {
+                "key": "D maj",
+                "count": 25,
+                "fraction": 0.1524390243902439
+              },
+              {
+                "key": "C maj",
+                "count": 14,
+                "fraction": 0.08536585365853659
+              }
+            ],
+            "n_key_switch_eligible_transitions": 163,
+            "n_key_switches": 7,
+            "key_switch_proportion": 0.04294478527607362,
+            "mean_jump": 0.04294478527607362,
+            "max_jump": 1.0,
+            "n_large_jumps": 0,
+            "large_jump_proportion": 0.0,
+            "mean_tie_count_active_windows": 2.9451219512195124,
+            "max_tie_count_active_windows": 6,
+            "n_windows_predicted_minor_mode": 0,
+            "fraction_defined_windows_predicted_minor_mode": 0.0
+          },
+          "anchors": {
+            "full_piece": {
+              "expected_key": "G Major",
+              "n_predictions": 164,
+              "n_defined": 164,
+              "strict_expected_key_proportion": 0.7621951219512195,
+              "collection_equivalent_key": "E min",
+              "collection_equivalent_proportion": 0.7621951219512195,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 141,
+                "n_selected_when_tied": 125,
+                "n_lost_to_tiebreak": 16
+              },
+              "mismatch_predicted_key_breakdown": {
+                "C maj": 14,
+                "D maj": 25
+              },
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            }
+          },
+          "gate_diagnostics": {
+            "n_windows": 164,
+            "n_gate1_density_pass": 164,
+            "gate1_pass_fraction": 1.0,
+            "n_gate2_stability_pass": 145,
+            "gate2_pass_fraction": 0.8841463414634146,
+            "n_gate3_margin_pass": 9,
+            "gate3_pass_fraction": 0.054878048780487805,
+            "n_all_gates_pass_weighted_eligible": 9,
+            "all_gates_pass_fraction": 0.054878048780487805,
+            "n_actual_swaps_from_default": 1,
+            "actual_swap_fraction": 0.006097560975609756,
+            "n_swaps_to_minor_mode": 0,
+            "settings": {
+              "density_threshold_active_pc_count_gt": 2,
+              "stability_window_windows": 4,
+              "stability_window_sec": 2.0,
+              "margin_threshold": 0.2,
+              "margin_threshold_source": "pitch_class_uncertainty_diagnostics.DEFAULT_LOW_MARGIN_THRESHOLD (reused verbatim, not re-tuned)",
+              "margin_metric": "normalized top1-vs-top2 score margin computed on the WEIGHTED (variant D) raw scores",
+              "default_backbone": "C (tie-aware continuity) -- documented design choice, see module docstring"
+            }
+          },
+          "bach_tonic_neighborhood": {
+            "n_mismatched_windows": 39,
+            "n_within_CGD_tonic_neighborhood": 39,
+            "proportion_within_CGD_tonic_neighborhood": 1.0,
+            "mismatch_breakdown": {
+              "C maj": 14,
+              "D maj": 25
+            }
+          }
+        }
+      },
+      "context_C_tie_aware_continuity": {
+        "piece_level": {
+          "n_predictions": 164,
+          "n_active": 164,
+          "active_fraction": 1.0,
+          "n_unique_predicted_keys": 3,
+          "unique_predicted_keys": [
+            "C maj",
+            "D maj",
+            "G maj"
+          ],
+          "dominant_predicted_keys": [
+            {
+              "key": "G maj",
+              "count": 124,
+              "fraction": 0.7560975609756098
+            },
+            {
+              "key": "D maj",
+              "count": 25,
+              "fraction": 0.1524390243902439
+            },
+            {
+              "key": "C maj",
+              "count": 15,
+              "fraction": 0.09146341463414634
+            }
+          ],
+          "n_key_switch_eligible_transitions": 163,
+          "n_key_switches": 5,
+          "key_switch_proportion": 0.03067484662576687,
+          "mean_jump": 0.03067484662576687,
+          "max_jump": 1.0,
+          "n_large_jumps": 0,
+          "large_jump_proportion": 0.0,
+          "mean_tie_count_active_windows": 3.1463414634146343,
+          "max_tie_count_active_windows": 6,
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        }
+      }
+    },
+    "L3": {
+      "display_name": "Beethoven \u2014 F\u00fcr Elise (opening excerpt, [0.0, 54.0]s)",
+      "variants": {
+        "A_control": {
+          "piece_level": {
+            "n_predictions": 107,
+            "n_active": 106,
+            "active_fraction": 0.9906542056074766,
+            "n_unique_predicted_keys": 4,
+            "unique_predicted_keys": [
+              "C maj",
+              "E maj",
+              "A maj",
+              "A# maj"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "C maj",
+                "count": 76,
+                "fraction": 0.7169811320754716
+              },
+              {
+                "key": "E maj",
+                "count": 21,
+                "fraction": 0.19811320754716982
+              },
+              {
+                "key": "A maj",
+                "count": 5,
+                "fraction": 0.04716981132075472
+              },
+              {
+                "key": "A# maj",
+                "count": 4,
+                "fraction": 0.03773584905660377
+              }
+            ],
+            "n_key_switch_eligible_transitions": 105,
+            "n_key_switches": 16,
+            "key_switch_proportion": 0.1523809523809524,
+            "mean_jump": 0.5904761904761905,
+            "max_jump": 6.0,
+            "n_large_jumps": 15,
+            "large_jump_proportion": 0.14285714285714285,
+            "mean_tie_count_active_windows": 3.547169811320755,
+            "max_tie_count_active_windows": 14,
+            "n_windows_predicted_minor_mode": 0,
+            "fraction_defined_windows_predicted_minor_mode": 0.0
+          },
+          "anchors": {
+            "full_excerpt": {
+              "expected_key": "A Minor",
+              "n_predictions": 107,
+              "n_defined": 106,
+              "strict_expected_key_proportion": 0.0,
+              "collection_equivalent_key": "C maj",
+              "collection_equivalent_proportion": 0.7169811320754716,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 76,
+                "n_selected_when_tied": 0,
+                "n_lost_to_tiebreak": 76
+              },
+              "mismatch_predicted_key_breakdown": {
+                "C maj": 76,
+                "E maj": 21,
+                "A maj": 5,
+                "A# maj": 4
+              },
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            }
+          }
+        },
+        "D_weighted_profile": {
+          "piece_level": {
+            "n_predictions": 107,
+            "n_active": 106,
+            "active_fraction": 0.9906542056074766,
+            "n_unique_predicted_keys": 8,
+            "unique_predicted_keys": [
+              "C maj",
+              "E maj",
+              "G# maj",
+              "A maj",
+              "B maj",
+              "D min",
+              "E min",
+              "A min"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "A min",
+                "count": 44,
+                "fraction": 0.41509433962264153
+              },
+              {
+                "key": "E min",
+                "count": 32,
+                "fraction": 0.3018867924528302
+              },
+              {
+                "key": "E maj",
+                "count": 17,
+                "fraction": 0.16037735849056603
+              },
+              {
+                "key": "C maj",
+                "count": 5,
+                "fraction": 0.04716981132075472
+              },
+              {
+                "key": "A maj",
+                "count": 4,
+                "fraction": 0.03773584905660377
+              }
+            ],
+            "n_key_switch_eligible_transitions": 105,
+            "n_key_switches": 44,
+            "key_switch_proportion": 0.41904761904761906,
+            "mean_jump": 0.580952380952381,
+            "max_jump": 5.0,
+            "n_large_jumps": 7,
+            "large_jump_proportion": 0.06666666666666667,
+            "mean_tie_count_active_windows": 1.0471698113207548,
+            "max_tie_count_active_windows": 2,
+            "n_windows_predicted_minor_mode": 78,
+            "fraction_defined_windows_predicted_minor_mode": 0.7358490566037735
+          },
+          "anchors": {
+            "full_excerpt": {
+              "expected_key": "A Minor",
+              "n_predictions": 107,
+              "n_defined": 106,
+              "strict_expected_key_proportion": 0.41509433962264153,
+              "collection_equivalent_key": "C maj",
+              "collection_equivalent_proportion": 0.46226415094339623,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 48,
+                "n_selected_when_tied": 44,
+                "n_lost_to_tiebreak": 4
+              },
+              "mismatch_predicted_key_breakdown": {
+                "E maj": 17,
+                "B maj": 1,
+                "C maj": 5,
+                "E min": 32,
+                "D min": 2,
+                "A maj": 4,
+                "G# maj": 1
+              },
+              "n_windows_predicted_minor_mode": 78,
+              "fraction_defined_windows_predicted_minor_mode": 0.7358490566037735
+            }
+          }
+        },
+        "E_texture_gated": {
+          "piece_level": {
+            "n_predictions": 107,
+            "n_active": 106,
+            "active_fraction": 0.9906542056074766,
+            "n_unique_predicted_keys": 4,
+            "unique_predicted_keys": [
+              "C maj",
+              "E maj",
+              "A maj",
+              "A# maj"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "C maj",
+                "count": 76,
+                "fraction": 0.7169811320754716
+              },
+              {
+                "key": "E maj",
+                "count": 21,
+                "fraction": 0.19811320754716982
+              },
+              {
+                "key": "A maj",
+                "count": 5,
+                "fraction": 0.04716981132075472
+              },
+              {
+                "key": "A# maj",
+                "count": 4,
+                "fraction": 0.03773584905660377
+              }
+            ],
+            "n_key_switch_eligible_transitions": 105,
+            "n_key_switches": 16,
+            "key_switch_proportion": 0.1523809523809524,
+            "mean_jump": 0.5904761904761905,
+            "max_jump": 6.0,
+            "n_large_jumps": 15,
+            "large_jump_proportion": 0.14285714285714285,
+            "mean_tie_count_active_windows": 3.547169811320755,
+            "max_tie_count_active_windows": 14,
+            "n_windows_predicted_minor_mode": 0,
+            "fraction_defined_windows_predicted_minor_mode": 0.0
+          },
+          "anchors": {
+            "full_excerpt": {
+              "expected_key": "A Minor",
+              "n_predictions": 107,
+              "n_defined": 106,
+              "strict_expected_key_proportion": 0.0,
+              "collection_equivalent_key": "C maj",
+              "collection_equivalent_proportion": 0.7169811320754716,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 76,
+                "n_selected_when_tied": 0,
+                "n_lost_to_tiebreak": 76
+              },
+              "mismatch_predicted_key_breakdown": {
+                "C maj": 76,
+                "E maj": 21,
+                "A maj": 5,
+                "A# maj": 4
+              },
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            }
+          },
+          "gate_diagnostics": {
+            "n_windows": 107,
+            "n_gate1_density_pass": 104,
+            "gate1_pass_fraction": 0.9719626168224299,
+            "n_gate2_stability_pass": 67,
+            "gate2_pass_fraction": 0.6261682242990654,
+            "n_gate3_margin_pass": 1,
+            "gate3_pass_fraction": 0.009345794392523364,
+            "n_all_gates_pass_weighted_eligible": 0,
+            "all_gates_pass_fraction": 0.0,
+            "n_actual_swaps_from_default": 0,
+            "actual_swap_fraction": 0.0,
+            "n_swaps_to_minor_mode": 0,
+            "settings": {
+              "density_threshold_active_pc_count_gt": 2,
+              "stability_window_windows": 4,
+              "stability_window_sec": 2.0,
+              "margin_threshold": 0.2,
+              "margin_threshold_source": "pitch_class_uncertainty_diagnostics.DEFAULT_LOW_MARGIN_THRESHOLD (reused verbatim, not re-tuned)",
+              "margin_metric": "normalized top1-vs-top2 score margin computed on the WEIGHTED (variant D) raw scores",
+              "default_backbone": "C (tie-aware continuity) -- documented design choice, see module docstring"
+            }
+          }
+        }
+      },
+      "context_C_tie_aware_continuity": {
+        "piece_level": {
+          "n_predictions": 107,
+          "n_active": 106,
+          "active_fraction": 0.9906542056074766,
+          "n_unique_predicted_keys": 4,
+          "unique_predicted_keys": [
+            "C maj",
+            "E maj",
+            "A maj",
+            "A# maj"
+          ],
+          "dominant_predicted_keys": [
+            {
+              "key": "C maj",
+              "count": 76,
+              "fraction": 0.7169811320754716
+            },
+            {
+              "key": "E maj",
+              "count": 21,
+              "fraction": 0.19811320754716982
+            },
+            {
+              "key": "A maj",
+              "count": 5,
+              "fraction": 0.04716981132075472
+            },
+            {
+              "key": "A# maj",
+              "count": 4,
+              "fraction": 0.03773584905660377
+            }
+          ],
+          "n_key_switch_eligible_transitions": 105,
+          "n_key_switches": 16,
+          "key_switch_proportion": 0.1523809523809524,
+          "mean_jump": 0.5904761904761905,
+          "max_jump": 6.0,
+          "n_large_jumps": 15,
+          "large_jump_proportion": 0.14285714285714285,
+          "mean_tie_count_active_windows": 3.547169811320755,
+          "max_tie_count_active_windows": 14,
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        }
+      }
+    },
+    "L4": {
+      "display_name": "Chopin \u2014 Prelude in E minor, Op. 28 No. 4",
+      "variants": {
+        "A_control": {
+          "piece_level": {
+            "n_predictions": 216,
+            "n_active": 216,
+            "active_fraction": 1.0,
+            "n_unique_predicted_keys": 7,
+            "unique_predicted_keys": [
+              "C maj",
+              "D maj",
+              "E maj",
+              "F maj",
+              "F# maj",
+              "G maj",
+              "A maj"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "G maj",
+                "count": 106,
+                "fraction": 0.49074074074074076
+              },
+              {
+                "key": "C maj",
+                "count": 52,
+                "fraction": 0.24074074074074073
+              },
+              {
+                "key": "E maj",
+                "count": 27,
+                "fraction": 0.125
+              },
+              {
+                "key": "D maj",
+                "count": 14,
+                "fraction": 0.06481481481481481
+              },
+              {
+                "key": "A maj",
+                "count": 7,
+                "fraction": 0.032407407407407406
+              }
+            ],
+            "n_key_switch_eligible_transitions": 215,
+            "n_key_switches": 38,
+            "key_switch_proportion": 0.17674418604651163,
+            "mean_jump": 0.4372093023255814,
+            "max_jump": 6.0,
+            "n_large_jumps": 20,
+            "large_jump_proportion": 0.09302325581395349,
+            "mean_tie_count_active_windows": 2.6018518518518516,
+            "max_tie_count_active_windows": 14,
+            "n_windows_predicted_minor_mode": 0,
+            "fraction_defined_windows_predicted_minor_mode": 0.0
+          },
+          "anchors": {
+            "full_piece": {
+              "expected_key": "E Minor",
+              "n_predictions": 216,
+              "n_defined": 216,
+              "strict_expected_key_proportion": 0.0,
+              "collection_equivalent_key": "G maj",
+              "collection_equivalent_proportion": 0.49074074074074076,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 135,
+                "n_selected_when_tied": 0,
+                "n_lost_to_tiebreak": 135
+              },
+              "mismatch_predicted_key_breakdown": {
+                "C maj": 52,
+                "G maj": 106,
+                "E maj": 27,
+                "A maj": 7,
+                "D maj": 14,
+                "F# maj": 3,
+                "F maj": 7
+              },
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            }
+          },
+          "chopin_silence_window_handling": {
+            "n_windows_in_region": 9,
+            "n_active_in_region": 9,
+            "n_inactive_in_region": 0
+          }
+        },
+        "D_weighted_profile": {
+          "piece_level": {
+            "n_predictions": 216,
+            "n_active": 216,
+            "active_fraction": 1.0,
+            "n_unique_predicted_keys": 12,
+            "unique_predicted_keys": [
+              "C maj",
+              "D maj",
+              "E maj",
+              "F maj",
+              "A maj",
+              "B maj",
+              "D min",
+              "E min",
+              "F# min",
+              "G# min",
+              "A min",
+              "B min"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "E min",
+                "count": 88,
+                "fraction": 0.4074074074074074
+              },
+              {
+                "key": "A min",
+                "count": 52,
+                "fraction": 0.24074074074074073
+              },
+              {
+                "key": "B maj",
+                "count": 27,
+                "fraction": 0.125
+              },
+              {
+                "key": "E maj",
+                "count": 13,
+                "fraction": 0.06018518518518518
+              },
+              {
+                "key": "D min",
+                "count": 11,
+                "fraction": 0.05092592592592592
+              }
+            ],
+            "n_key_switch_eligible_transitions": 215,
+            "n_key_switches": 51,
+            "key_switch_proportion": 0.2372093023255814,
+            "mean_jump": 0.3395348837209302,
+            "max_jump": 4.0,
+            "n_large_jumps": 10,
+            "large_jump_proportion": 0.046511627906976744,
+            "mean_tie_count_active_windows": 1.0185185185185186,
+            "max_tie_count_active_windows": 2,
+            "n_windows_predicted_minor_mode": 158,
+            "fraction_defined_windows_predicted_minor_mode": 0.7314814814814815
+          },
+          "anchors": {
+            "full_piece": {
+              "expected_key": "E Minor",
+              "n_predictions": 216,
+              "n_defined": 216,
+              "strict_expected_key_proportion": 0.4074074074074074,
+              "collection_equivalent_key": "G maj",
+              "collection_equivalent_proportion": 0.4074074074074074,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 90,
+                "n_selected_when_tied": 88,
+                "n_lost_to_tiebreak": 2
+              },
+              "mismatch_predicted_key_breakdown": {
+                "B maj": 27,
+                "D min": 11,
+                "E maj": 13,
+                "C maj": 4,
+                "A min": 52,
+                "D maj": 10,
+                "F# min": 1,
+                "F maj": 1,
+                "G# min": 3,
+                "A maj": 3,
+                "B min": 3
+              },
+              "n_windows_predicted_minor_mode": 158,
+              "fraction_defined_windows_predicted_minor_mode": 0.7314814814814815
+            }
+          },
+          "chopin_silence_window_handling": {
+            "n_windows_in_region": 9,
+            "n_active_in_region": 9,
+            "n_inactive_in_region": 0
+          }
+        },
+        "E_texture_gated": {
+          "piece_level": {
+            "n_predictions": 216,
+            "n_active": 216,
+            "active_fraction": 1.0,
+            "n_unique_predicted_keys": 9,
+            "unique_predicted_keys": [
+              "C maj",
+              "D maj",
+              "E maj",
+              "F maj",
+              "F# maj",
+              "G maj",
+              "A maj",
+              "E min",
+              "A min"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "G maj",
+                "count": 112,
+                "fraction": 0.5185185185185185
+              },
+              {
+                "key": "C maj",
+                "count": 35,
+                "fraction": 0.16203703703703703
+              },
+              {
+                "key": "E maj",
+                "count": 27,
+                "fraction": 0.125
+              },
+              {
+                "key": "D maj",
+                "count": 15,
+                "fraction": 0.06944444444444445
+              },
+              {
+                "key": "A maj",
+                "count": 7,
+                "fraction": 0.032407407407407406
+              }
+            ],
+            "n_key_switch_eligible_transitions": 215,
+            "n_key_switches": 38,
+            "key_switch_proportion": 0.17674418604651163,
+            "mean_jump": 0.5023255813953489,
+            "max_jump": 6.0,
+            "n_large_jumps": 26,
+            "large_jump_proportion": 0.12093023255813953,
+            "mean_tie_count_active_windows": 2.509259259259259,
+            "max_tie_count_active_windows": 14,
+            "n_windows_predicted_minor_mode": 10,
+            "fraction_defined_windows_predicted_minor_mode": 0.046296296296296294
+          },
+          "anchors": {
+            "full_piece": {
+              "expected_key": "E Minor",
+              "n_predictions": 216,
+              "n_defined": 216,
+              "strict_expected_key_proportion": 0.018518518518518517,
+              "collection_equivalent_key": "G maj",
+              "collection_equivalent_proportion": 0.5370370370370371,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 133,
+                "n_selected_when_tied": 4,
+                "n_lost_to_tiebreak": 129
+              },
+              "mismatch_predicted_key_breakdown": {
+                "C maj": 35,
+                "G maj": 112,
+                "E maj": 27,
+                "A maj": 7,
+                "D maj": 15,
+                "A min": 6,
+                "F# maj": 3,
+                "F maj": 7
+              },
+              "n_windows_predicted_minor_mode": 10,
+              "fraction_defined_windows_predicted_minor_mode": 0.046296296296296294
+            }
+          },
+          "gate_diagnostics": {
+            "n_windows": 216,
+            "n_gate1_density_pass": 214,
+            "gate1_pass_fraction": 0.9907407407407407,
+            "n_gate2_stability_pass": 129,
+            "gate2_pass_fraction": 0.5972222222222222,
+            "n_gate3_margin_pass": 10,
+            "gate3_pass_fraction": 0.046296296296296294,
+            "n_all_gates_pass_weighted_eligible": 10,
+            "all_gates_pass_fraction": 0.046296296296296294,
+            "n_actual_swaps_from_default": 10,
+            "actual_swap_fraction": 0.046296296296296294,
+            "n_swaps_to_minor_mode": 10,
+            "settings": {
+              "density_threshold_active_pc_count_gt": 2,
+              "stability_window_windows": 4,
+              "stability_window_sec": 2.0,
+              "margin_threshold": 0.2,
+              "margin_threshold_source": "pitch_class_uncertainty_diagnostics.DEFAULT_LOW_MARGIN_THRESHOLD (reused verbatim, not re-tuned)",
+              "margin_metric": "normalized top1-vs-top2 score margin computed on the WEIGHTED (variant D) raw scores",
+              "default_backbone": "C (tie-aware continuity) -- documented design choice, see module docstring"
+            }
+          },
+          "chopin_silence_window_handling": {
+            "n_windows_in_region": 9,
+            "n_active_in_region": 9,
+            "n_inactive_in_region": 0
+          }
+        }
+      },
+      "context_C_tie_aware_continuity": {
+        "piece_level": {
+          "n_predictions": 216,
+          "n_active": 216,
+          "active_fraction": 1.0,
+          "n_unique_predicted_keys": 7,
+          "unique_predicted_keys": [
+            "C maj",
+            "D maj",
+            "E maj",
+            "F maj",
+            "F# maj",
+            "G maj",
+            "A maj"
+          ],
+          "dominant_predicted_keys": [
+            {
+              "key": "G maj",
+              "count": 115,
+              "fraction": 0.5324074074074074
+            },
+            {
+              "key": "C maj",
+              "count": 42,
+              "fraction": 0.19444444444444445
+            },
+            {
+              "key": "E maj",
+              "count": 27,
+              "fraction": 0.125
+            },
+            {
+              "key": "D maj",
+              "count": 15,
+              "fraction": 0.06944444444444445
+            },
+            {
+              "key": "A maj",
+              "count": 7,
+              "fraction": 0.032407407407407406
+            }
+          ],
+          "n_key_switch_eligible_transitions": 215,
+          "n_key_switches": 32,
+          "key_switch_proportion": 0.14883720930232558,
+          "mean_jump": 0.40930232558139534,
+          "max_jump": 6.0,
+          "n_large_jumps": 21,
+          "large_jump_proportion": 0.09767441860465116,
+          "mean_tie_count_active_windows": 2.6018518518518516,
+          "max_tie_count_active_windows": 14,
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        }
+      }
+    },
+    "L5": {
+      "display_name": "Clementi \u2014 Sonatina Op. 36 No. 1, I (exposition, [0.0, 17.3]s)",
+      "variants": {
+        "A_control": {
+          "piece_level": {
+            "n_predictions": 34,
+            "n_active": 34,
+            "active_fraction": 1.0,
+            "n_unique_predicted_keys": 2,
+            "unique_predicted_keys": [
+              "C maj",
+              "G maj"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "C maj",
+                "count": 23,
+                "fraction": 0.6764705882352942
+              },
+              {
+                "key": "G maj",
+                "count": 11,
+                "fraction": 0.3235294117647059
+              }
+            ],
+            "n_key_switch_eligible_transitions": 33,
+            "n_key_switches": 2,
+            "key_switch_proportion": 0.06060606060606061,
+            "mean_jump": 0.06060606060606061,
+            "max_jump": 1.0,
+            "n_large_jumps": 0,
+            "large_jump_proportion": 0.0,
+            "mean_tie_count_active_windows": 4.294117647058823,
+            "max_tie_count_active_windows": 14,
+            "n_windows_predicted_minor_mode": 0,
+            "fraction_defined_windows_predicted_minor_mode": 0.0
+          },
+          "anchors": {
+            "approx_first_half": {
+              "expected_key": "C Major",
+              "n_predictions": 18,
+              "n_defined": 18,
+              "strict_expected_key_proportion": 0.7222222222222222,
+              "collection_equivalent_key": "A min",
+              "collection_equivalent_proportion": 0.7222222222222222,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 13,
+                "n_selected_when_tied": 13,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {
+                "G maj": 5
+              },
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            },
+            "approx_second_half": {
+              "expected_key": "G Major",
+              "n_predictions": 16,
+              "n_defined": 16,
+              "strict_expected_key_proportion": 0.375,
+              "collection_equivalent_key": "E min",
+              "collection_equivalent_proportion": 0.375,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 16,
+                "n_selected_when_tied": 6,
+                "n_lost_to_tiebreak": 10
+              },
+              "mismatch_predicted_key_breakdown": {
+                "C maj": 10
+              },
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            }
+          },
+          "clementi_run_behavior": {
+            "predicted_key_runs": [
+              {
+                "key": "C maj",
+                "start_sec": 0.0,
+                "end_sec": 6.0,
+                "n_windows": 13
+              },
+              {
+                "key": "G maj",
+                "start_sec": 6.5,
+                "end_sec": 11.5,
+                "n_windows": 11
+              },
+              {
+                "key": "C maj",
+                "start_sec": 12.0,
+                "end_sec": 16.5,
+                "n_windows": 10
+              }
+            ],
+            "run_key_sequence": [
+              "C maj",
+              "G maj",
+              "C maj"
+            ],
+            "is_exact_c_maj_g_maj_c_maj_pattern": true
+          }
+        },
+        "D_weighted_profile": {
+          "piece_level": {
+            "n_predictions": 34,
+            "n_active": 34,
+            "active_fraction": 1.0,
+            "n_unique_predicted_keys": 5,
+            "unique_predicted_keys": [
+              "C maj",
+              "D maj",
+              "G maj",
+              "D min",
+              "A min"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "C maj",
+                "count": 16,
+                "fraction": 0.47058823529411764
+              },
+              {
+                "key": "A min",
+                "count": 8,
+                "fraction": 0.23529411764705882
+              },
+              {
+                "key": "D min",
+                "count": 6,
+                "fraction": 0.17647058823529413
+              },
+              {
+                "key": "D maj",
+                "count": 3,
+                "fraction": 0.08823529411764706
+              },
+              {
+                "key": "G maj",
+                "count": 1,
+                "fraction": 0.029411764705882353
+              }
+            ],
+            "n_key_switch_eligible_transitions": 33,
+            "n_key_switches": 11,
+            "key_switch_proportion": 0.3333333333333333,
+            "mean_jump": 0.6666666666666666,
+            "max_jump": 3.0,
+            "n_large_jumps": 5,
+            "large_jump_proportion": 0.15151515151515152,
+            "mean_tie_count_active_windows": 1.0588235294117647,
+            "max_tie_count_active_windows": 2,
+            "n_windows_predicted_minor_mode": 14,
+            "fraction_defined_windows_predicted_minor_mode": 0.4117647058823529
+          },
+          "anchors": {
+            "approx_first_half": {
+              "expected_key": "C Major",
+              "n_predictions": 18,
+              "n_defined": 18,
+              "strict_expected_key_proportion": 0.8333333333333334,
+              "collection_equivalent_key": "A min",
+              "collection_equivalent_proportion": 1.0,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 15,
+                "n_selected_when_tied": 15,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {
+                "A min": 3
+              },
+              "n_windows_predicted_minor_mode": 3,
+              "fraction_defined_windows_predicted_minor_mode": 0.16666666666666666
+            },
+            "approx_second_half": {
+              "expected_key": "G Major",
+              "n_predictions": 16,
+              "n_defined": 16,
+              "strict_expected_key_proportion": 0.0625,
+              "collection_equivalent_key": "E min",
+              "collection_equivalent_proportion": 0.0625,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 1,
+                "n_selected_when_tied": 1,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {
+                "A min": 5,
+                "D maj": 3,
+                "D min": 6,
+                "C maj": 1
+              },
+              "n_windows_predicted_minor_mode": 11,
+              "fraction_defined_windows_predicted_minor_mode": 0.6875
+            }
+          },
+          "clementi_run_behavior": {
+            "predicted_key_runs": [
+              {
+                "key": "C maj",
+                "start_sec": 0.0,
+                "end_sec": 3.5,
+                "n_windows": 8
+              },
+              {
+                "key": "A min",
+                "start_sec": 4.0,
+                "end_sec": 4.0,
+                "n_windows": 1
+              },
+              {
+                "key": "C maj",
+                "start_sec": 4.5,
+                "end_sec": 7.5,
+                "n_windows": 7
+              },
+              {
+                "key": "A min",
+                "start_sec": 8.0,
+                "end_sec": 9.5,
+                "n_windows": 4
+              },
+              {
+                "key": "D maj",
+                "start_sec": 10.0,
+                "end_sec": 11.0,
+                "n_windows": 3
+              },
+              {
+                "key": "G maj",
+                "start_sec": 11.5,
+                "end_sec": 11.5,
+                "n_windows": 1
+              },
+              {
+                "key": "A min",
+                "start_sec": 12.0,
+                "end_sec": 12.0,
+                "n_windows": 1
+              },
+              {
+                "key": "D min",
+                "start_sec": 12.5,
+                "end_sec": 13.5,
+                "n_windows": 3
+              },
+              {
+                "key": "A min",
+                "start_sec": 14.0,
+                "end_sec": 14.0,
+                "n_windows": 1
+              },
+              {
+                "key": "C maj",
+                "start_sec": 14.5,
+                "end_sec": 14.5,
+                "n_windows": 1
+              },
+              {
+                "key": "A min",
+                "start_sec": 15.0,
+                "end_sec": 15.0,
+                "n_windows": 1
+              },
+              {
+                "key": "D min",
+                "start_sec": 15.5,
+                "end_sec": 16.5,
+                "n_windows": 3
+              }
+            ],
+            "run_key_sequence": [
+              "C maj",
+              "A min",
+              "C maj",
+              "A min",
+              "D maj",
+              "G maj",
+              "A min",
+              "D min",
+              "A min",
+              "C maj",
+              "A min",
+              "D min"
+            ],
+            "is_exact_c_maj_g_maj_c_maj_pattern": false
+          }
+        },
+        "E_texture_gated": {
+          "piece_level": {
+            "n_predictions": 34,
+            "n_active": 34,
+            "active_fraction": 1.0,
+            "n_unique_predicted_keys": 2,
+            "unique_predicted_keys": [
+              "C maj",
+              "G maj"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "G maj",
+                "count": 21,
+                "fraction": 0.6176470588235294
+              },
+              {
+                "key": "C maj",
+                "count": 13,
+                "fraction": 0.38235294117647056
+              }
+            ],
+            "n_key_switch_eligible_transitions": 33,
+            "n_key_switches": 1,
+            "key_switch_proportion": 0.030303030303030304,
+            "mean_jump": 0.030303030303030304,
+            "max_jump": 1.0,
+            "n_large_jumps": 0,
+            "large_jump_proportion": 0.0,
+            "mean_tie_count_active_windows": 4.294117647058823,
+            "max_tie_count_active_windows": 14,
+            "n_windows_predicted_minor_mode": 0,
+            "fraction_defined_windows_predicted_minor_mode": 0.0
+          },
+          "anchors": {
+            "approx_first_half": {
+              "expected_key": "C Major",
+              "n_predictions": 18,
+              "n_defined": 18,
+              "strict_expected_key_proportion": 0.7222222222222222,
+              "collection_equivalent_key": "A min",
+              "collection_equivalent_proportion": 0.7222222222222222,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 13,
+                "n_selected_when_tied": 13,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {
+                "G maj": 5
+              },
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            },
+            "approx_second_half": {
+              "expected_key": "G Major",
+              "n_predictions": 16,
+              "n_defined": 16,
+              "strict_expected_key_proportion": 1.0,
+              "collection_equivalent_key": "E min",
+              "collection_equivalent_proportion": 1.0,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 16,
+                "n_selected_when_tied": 16,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {},
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            }
+          },
+          "gate_diagnostics": {
+            "n_windows": 34,
+            "n_gate1_density_pass": 32,
+            "gate1_pass_fraction": 0.9411764705882353,
+            "n_gate2_stability_pass": 27,
+            "gate2_pass_fraction": 0.7941176470588235,
+            "n_gate3_margin_pass": 0,
+            "gate3_pass_fraction": 0.0,
+            "n_all_gates_pass_weighted_eligible": 0,
+            "all_gates_pass_fraction": 0.0,
+            "n_actual_swaps_from_default": 0,
+            "actual_swap_fraction": 0.0,
+            "n_swaps_to_minor_mode": 0,
+            "settings": {
+              "density_threshold_active_pc_count_gt": 2,
+              "stability_window_windows": 4,
+              "stability_window_sec": 2.0,
+              "margin_threshold": 0.2,
+              "margin_threshold_source": "pitch_class_uncertainty_diagnostics.DEFAULT_LOW_MARGIN_THRESHOLD (reused verbatim, not re-tuned)",
+              "margin_metric": "normalized top1-vs-top2 score margin computed on the WEIGHTED (variant D) raw scores",
+              "default_backbone": "C (tie-aware continuity) -- documented design choice, see module docstring"
+            }
+          },
+          "clementi_run_behavior": {
+            "predicted_key_runs": [
+              {
+                "key": "C maj",
+                "start_sec": 0.0,
+                "end_sec": 6.0,
+                "n_windows": 13
+              },
+              {
+                "key": "G maj",
+                "start_sec": 6.5,
+                "end_sec": 16.5,
+                "n_windows": 21
+              }
+            ],
+            "run_key_sequence": [
+              "C maj",
+              "G maj"
+            ],
+            "is_exact_c_maj_g_maj_c_maj_pattern": false
+          }
+        }
+      },
+      "context_C_tie_aware_continuity": {
+        "piece_level": {
+          "n_predictions": 34,
+          "n_active": 34,
+          "active_fraction": 1.0,
+          "n_unique_predicted_keys": 2,
+          "unique_predicted_keys": [
+            "C maj",
+            "G maj"
+          ],
+          "dominant_predicted_keys": [
+            {
+              "key": "G maj",
+              "count": 21,
+              "fraction": 0.6176470588235294
+            },
+            {
+              "key": "C maj",
+              "count": 13,
+              "fraction": 0.38235294117647056
+            }
+          ],
+          "n_key_switch_eligible_transitions": 33,
+          "n_key_switches": 1,
+          "key_switch_proportion": 0.030303030303030304,
+          "mean_jump": 0.030303030303030304,
+          "max_jump": 1.0,
+          "n_large_jumps": 0,
+          "large_jump_proportion": 0.0,
+          "mean_tie_count_active_windows": 4.294117647058823,
+          "max_tie_count_active_windows": 14,
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        }
+      }
+    },
+    "L6": {
+      "display_name": "Twinkle 12.mid (Mozart 12 Variations)",
+      "variants": {
+        "A_control": {
+          "piece_level": {
+            "n_predictions": 1374,
+            "n_active": 1271,
+            "active_fraction": 0.9250363901018923,
+            "n_unique_predicted_keys": 4,
+            "unique_predicted_keys": [
+              "C maj",
+              "D# maj",
+              "G maj",
+              "A# maj"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "C maj",
+                "count": 1155,
+                "fraction": 0.9087332808811959
+              },
+              {
+                "key": "D# maj",
+                "count": 90,
+                "fraction": 0.07081038552321008
+              },
+              {
+                "key": "G maj",
+                "count": 24,
+                "fraction": 0.01888276947285602
+              },
+              {
+                "key": "A# maj",
+                "count": 2,
+                "fraction": 0.0015735641227380016
+              }
+            ],
+            "n_key_switch_eligible_transitions": 1270,
+            "n_key_switches": 11,
+            "key_switch_proportion": 0.008661417322834646,
+            "mean_jump": 0.01732283464566929,
+            "max_jump": 3.0,
+            "n_large_jumps": 5,
+            "large_jump_proportion": 0.003937007874015748,
+            "mean_tie_count_active_windows": 6.709677419354839,
+            "max_tie_count_active_windows": 14,
+            "n_windows_predicted_minor_mode": 0,
+            "fraction_defined_windows_predicted_minor_mode": 0.0
+          },
+          "anchors": {
+            "pre_384s": {
+              "expected_key": "C Major",
+              "n_predictions": 768,
+              "n_defined": 665,
+              "strict_expected_key_proportion": 1.0,
+              "collection_equivalent_key": "A min",
+              "collection_equivalent_proportion": 1.0,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 665,
+                "n_selected_when_tied": 665,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {},
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            },
+            "384_to_432s": {
+              "expected_key": "Eb Major",
+              "n_predictions": 96,
+              "n_defined": 96,
+              "strict_expected_key_proportion": 0.8958333333333334,
+              "collection_equivalent_key": "C min",
+              "collection_equivalent_proportion": 0.8958333333333334,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 93,
+                "n_selected_when_tied": 86,
+                "n_lost_to_tiebreak": 7
+              },
+              "mismatch_predicted_key_breakdown": {
+                "C maj": 10
+              },
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            },
+            "post_432s": {
+              "expected_key": "C Major",
+              "n_predictions": 510,
+              "n_defined": 510,
+              "strict_expected_key_proportion": 0.9411764705882353,
+              "collection_equivalent_key": "A min",
+              "collection_equivalent_proportion": 0.9411764705882353,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 480,
+                "n_selected_when_tied": 480,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {
+                "D# maj": 4,
+                "A# maj": 2,
+                "G maj": 24
+              },
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            }
+          }
+        },
+        "D_weighted_profile": {
+          "piece_level": {
+            "n_predictions": 1374,
+            "n_active": 1271,
+            "active_fraction": 0.9250363901018923,
+            "n_unique_predicted_keys": 13,
+            "unique_predicted_keys": [
+              "C maj",
+              "D# maj",
+              "E maj",
+              "F maj",
+              "G maj",
+              "G# maj",
+              "B maj",
+              "C min",
+              "D min",
+              "E min",
+              "F min",
+              "G min",
+              "A min"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "C maj",
+                "count": 714,
+                "fraction": 0.5617623918174666
+              },
+              {
+                "key": "G maj",
+                "count": 157,
+                "fraction": 0.12352478363493312
+              },
+              {
+                "key": "D min",
+                "count": 140,
+                "fraction": 0.11014948859166011
+              },
+              {
+                "key": "G min",
+                "count": 87,
+                "fraction": 0.06845003933910307
+              },
+              {
+                "key": "F maj",
+                "count": 78,
+                "fraction": 0.06136900078678206
+              }
+            ],
+            "n_key_switch_eligible_transitions": 1270,
+            "n_key_switches": 133,
+            "key_switch_proportion": 0.1047244094488189,
+            "mean_jump": 0.2110236220472441,
+            "max_jump": 5.0,
+            "n_large_jumps": 48,
+            "large_jump_proportion": 0.03779527559055118,
+            "mean_tie_count_active_windows": 1.2344610542879622,
+            "max_tie_count_active_windows": 2,
+            "n_windows_predicted_minor_mode": 271,
+            "fraction_defined_windows_predicted_minor_mode": 0.21321793863099922
+          },
+          "anchors": {
+            "pre_384s": {
+              "expected_key": "C Major",
+              "n_predictions": 768,
+              "n_defined": 665,
+              "strict_expected_key_proportion": 0.6511278195488722,
+              "collection_equivalent_key": "A min",
+              "collection_equivalent_proportion": 0.6631578947368421,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 433,
+                "n_selected_when_tied": 433,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {
+                "G maj": 92,
+                "F maj": 64,
+                "E min": 8,
+                "B maj": 16,
+                "G min": 16,
+                "A min": 8,
+                "E maj": 28
+              },
+              "n_windows_predicted_minor_mode": 32,
+              "fraction_defined_windows_predicted_minor_mode": 0.0481203007518797
+            },
+            "384_to_432s": {
+              "expected_key": "Eb Major",
+              "n_predictions": 96,
+              "n_defined": 96,
+              "strict_expected_key_proportion": 0.041666666666666664,
+              "collection_equivalent_key": "C min",
+              "collection_equivalent_proportion": 0.1875,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 4,
+                "n_selected_when_tied": 4,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {
+                "C maj": 3,
+                "G maj": 7,
+                "G# maj": 3,
+                "F min": 4,
+                "G min": 61,
+                "C min": 14
+              },
+              "n_windows_predicted_minor_mode": 79,
+              "fraction_defined_windows_predicted_minor_mode": 0.8229166666666666
+            },
+            "post_432s": {
+              "expected_key": "C Major",
+              "n_predictions": 510,
+              "n_defined": 510,
+              "strict_expected_key_proportion": 0.5450980392156862,
+              "collection_equivalent_key": "A min",
+              "collection_equivalent_proportion": 0.5568627450980392,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 278,
+                "n_selected_when_tied": 278,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {
+                "G min": 10,
+                "D min": 140,
+                "F maj": 14,
+                "G maj": 58,
+                "E min": 4,
+                "A min": 6
+              },
+              "n_windows_predicted_minor_mode": 160,
+              "fraction_defined_windows_predicted_minor_mode": 0.3137254901960784
+            }
+          }
+        },
+        "E_texture_gated": {
+          "piece_level": {
+            "n_predictions": 1374,
+            "n_active": 1271,
+            "active_fraction": 0.9250363901018923,
+            "n_unique_predicted_keys": 7,
+            "unique_predicted_keys": [
+              "C maj",
+              "D# maj",
+              "F maj",
+              "G maj",
+              "A# maj",
+              "D min",
+              "F min"
+            ],
+            "dominant_predicted_keys": [
+              {
+                "key": "C maj",
+                "count": 1145,
+                "fraction": 0.9008654602675059
+              },
+              {
+                "key": "D# maj",
+                "count": 94,
+                "fraction": 0.07395751376868608
+              },
+              {
+                "key": "G maj",
+                "count": 24,
+                "fraction": 0.01888276947285602
+              },
+              {
+                "key": "A# maj",
+                "count": 3,
+                "fraction": 0.0023603461841070024
+              },
+              {
+                "key": "F min",
+                "count": 2,
+                "fraction": 0.0015735641227380016
+              }
+            ],
+            "n_key_switch_eligible_transitions": 1270,
+            "n_key_switches": 15,
+            "key_switch_proportion": 0.011811023622047244,
+            "mean_jump": 0.01889763779527559,
+            "max_jump": 3.0,
+            "n_large_jumps": 1,
+            "large_jump_proportion": 0.0007874015748031496,
+            "mean_tie_count_active_windows": 6.665617623918175,
+            "max_tie_count_active_windows": 14,
+            "n_windows_predicted_minor_mode": 3,
+            "fraction_defined_windows_predicted_minor_mode": 0.0023603461841070024
+          },
+          "anchors": {
+            "pre_384s": {
+              "expected_key": "C Major",
+              "n_predictions": 768,
+              "n_defined": 665,
+              "strict_expected_key_proportion": 1.0,
+              "collection_equivalent_key": "A min",
+              "collection_equivalent_proportion": 1.0,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 665,
+                "n_selected_when_tied": 665,
+                "n_lost_to_tiebreak": 0
+              },
+              "mismatch_predicted_key_breakdown": {},
+              "n_windows_predicted_minor_mode": 0,
+              "fraction_defined_windows_predicted_minor_mode": 0.0
+            },
+            "384_to_432s": {
+              "expected_key": "Eb Major",
+              "n_predictions": 96,
+              "n_defined": 96,
+              "strict_expected_key_proportion": 0.9375,
+              "collection_equivalent_key": "C min",
+              "collection_equivalent_proportion": 0.9375,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 91,
+                "n_selected_when_tied": 90,
+                "n_lost_to_tiebreak": 1
+              },
+              "mismatch_predicted_key_breakdown": {
+                "C maj": 4,
+                "F min": 2
+              },
+              "n_windows_predicted_minor_mode": 2,
+              "fraction_defined_windows_predicted_minor_mode": 0.020833333333333332
+            },
+            "post_432s": {
+              "expected_key": "C Major",
+              "n_predictions": 510,
+              "n_defined": 510,
+              "strict_expected_key_proportion": 0.9333333333333333,
+              "collection_equivalent_key": "A min",
+              "collection_equivalent_proportion": 0.9333333333333333,
+              "expected_key_in_top_tie": {
+                "n_tied_for_max": 477,
+                "n_selected_when_tied": 476,
+                "n_lost_to_tiebreak": 1
+              },
+              "mismatch_predicted_key_breakdown": {
+                "D# maj": 4,
+                "A# maj": 3,
+                "D min": 1,
+                "F maj": 2,
+                "G maj": 24
+              },
+              "n_windows_predicted_minor_mode": 1,
+              "fraction_defined_windows_predicted_minor_mode": 0.00196078431372549
+            }
+          },
+          "gate_diagnostics": {
+            "n_windows": 1374,
+            "n_gate1_density_pass": 820,
+            "gate1_pass_fraction": 0.5967976710334789,
+            "n_gate2_stability_pass": 1246,
+            "gate2_pass_fraction": 0.9068413391557496,
+            "n_gate3_margin_pass": 23,
+            "gate3_pass_fraction": 0.016739446870451237,
+            "n_all_gates_pass_weighted_eligible": 22,
+            "all_gates_pass_fraction": 0.01601164483260553,
+            "n_actual_swaps_from_default": 5,
+            "actual_swap_fraction": 0.00363901018922853,
+            "n_swaps_to_minor_mode": 3,
+            "settings": {
+              "density_threshold_active_pc_count_gt": 2,
+              "stability_window_windows": 4,
+              "stability_window_sec": 2.0,
+              "margin_threshold": 0.2,
+              "margin_threshold_source": "pitch_class_uncertainty_diagnostics.DEFAULT_LOW_MARGIN_THRESHOLD (reused verbatim, not re-tuned)",
+              "margin_metric": "normalized top1-vs-top2 score margin computed on the WEIGHTED (variant D) raw scores",
+              "default_backbone": "C (tie-aware continuity) -- documented design choice, see module docstring"
+            }
+          }
+        }
+      },
+      "context_C_tie_aware_continuity": {
+        "piece_level": {
+          "n_predictions": 1374,
+          "n_active": 1271,
+          "active_fraction": 0.9250363901018923,
+          "n_unique_predicted_keys": 4,
+          "unique_predicted_keys": [
+            "C maj",
+            "D# maj",
+            "G maj",
+            "A# maj"
+          ],
+          "dominant_predicted_keys": [
+            {
+              "key": "C maj",
+              "count": 1148,
+              "fraction": 0.9032258064516129
+            },
+            {
+              "key": "D# maj",
+              "count": 96,
+              "fraction": 0.07553107789142408
+            },
+            {
+              "key": "G maj",
+              "count": 24,
+              "fraction": 0.01888276947285602
+            },
+            {
+              "key": "A# maj",
+              "count": 3,
+              "fraction": 0.0023603461841070024
+            }
+          ],
+          "n_key_switch_eligible_transitions": 1270,
+          "n_key_switches": 7,
+          "key_switch_proportion": 0.005511811023622047,
+          "mean_jump": 0.007874015748031496,
+          "max_jump": 3.0,
+          "n_large_jumps": 1,
+          "large_jump_proportion": 0.0007874015748031496,
+          "mean_tie_count_active_windows": 6.709677419354839,
+          "max_tie_count_active_windows": 14,
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        }
+      }
+    }
+  },
+  "cross_variant_summary": {
+    "l3_l4_minor_recovery_by_variant": {
+      "L3_full_excerpt_A_minor": {
+        "A_control": {
+          "strict": 0.0,
+          "collection": 0.7169811320754716
+        },
+        "D_weighted_profile": {
+          "strict": 0.41509433962264153,
+          "collection": 0.46226415094339623
+        },
+        "E_texture_gated": {
+          "strict": 0.0,
+          "collection": 0.7169811320754716
+        }
+      },
+      "L4_full_piece_E_minor": {
+        "A_control": {
+          "strict": 0.0,
+          "collection": 0.49074074074074076
+        },
+        "D_weighted_profile": {
+          "strict": 0.4074074074074074,
+          "collection": 0.4074074074074074
+        },
+        "E_texture_gated": {
+          "strict": 0.018518518518518517,
+          "collection": 0.5370370370370371
+        }
+      }
+    },
+    "l1_l6_stability_by_variant": {
+      "L1_full_piece_C_major": {
+        "A_control": {
+          "strict": 1.0,
+          "n_key_switches": 0,
+          "n_large_jumps": 0
+        },
+        "D_weighted_profile": {
+          "strict": 0.3584905660377358,
+          "n_key_switches": 45,
+          "n_large_jumps": 8
+        },
+        "E_texture_gated": {
+          "strict": 0.9905660377358491,
+          "n_key_switches": 2,
+          "n_large_jumps": 0
+        }
+      },
+      "L6_pre_384s": {
+        "A_control": 1.0,
+        "D_weighted_profile": 0.6511278195488722,
+        "E_texture_gated": 1.0
+      },
+      "L6_384_to_432s": {
+        "A_control": 0.8958333333333334,
+        "D_weighted_profile": 0.041666666666666664,
+        "E_texture_gated": 0.9375
+      },
+      "L6_post_432s": {
+        "A_control": 0.9411764705882353,
+        "D_weighted_profile": 0.5450980392156862,
+        "E_texture_gated": 0.9333333333333333
+      },
+      "L6_n_key_switches": {
+        "A_control": 11,
+        "D_weighted_profile": 133,
+        "E_texture_gated": 15
+      },
+      "L6_n_large_jumps": {
+        "A_control": 5,
+        "D_weighted_profile": 48,
+        "E_texture_gated": 1
+      }
+    },
+    "l2_bach_tonic_neighborhood_by_variant": {
+      "A_control": {
+        "n_mismatched_windows": 95,
+        "n_within_CGD_tonic_neighborhood": 95,
+        "proportion_within_CGD_tonic_neighborhood": 1.0,
+        "mismatch_breakdown": {
+          "C maj": 49,
+          "D maj": 46
+        }
+      },
+      "D_weighted_profile": {
+        "n_mismatched_windows": 65,
+        "n_within_CGD_tonic_neighborhood": 51,
+        "proportion_within_CGD_tonic_neighborhood": 0.7846153846153846,
+        "mismatch_breakdown": {
+          "C maj": 9,
+          "D maj": 42,
+          "B min": 3,
+          "A min": 6,
+          "F# min": 2,
+          "E min": 2,
+          "A maj": 1
+        }
+      },
+      "E_texture_gated": {
+        "n_mismatched_windows": 39,
+        "n_within_CGD_tonic_neighborhood": 39,
+        "proportion_within_CGD_tonic_neighborhood": 1.0,
+        "mismatch_breakdown": {
+          "C maj": 14,
+          "D maj": 25
+        }
+      }
+    },
+    "l5_clementi_run_behavior_by_variant": {
+      "A_control": {
+        "predicted_key_runs": [
+          {
+            "key": "C maj",
+            "start_sec": 0.0,
+            "end_sec": 6.0,
+            "n_windows": 13
+          },
+          {
+            "key": "G maj",
+            "start_sec": 6.5,
+            "end_sec": 11.5,
+            "n_windows": 11
+          },
+          {
+            "key": "C maj",
+            "start_sec": 12.0,
+            "end_sec": 16.5,
+            "n_windows": 10
+          }
+        ],
+        "run_key_sequence": [
+          "C maj",
+          "G maj",
+          "C maj"
+        ],
+        "is_exact_c_maj_g_maj_c_maj_pattern": true
+      },
+      "D_weighted_profile": {
+        "predicted_key_runs": [
+          {
+            "key": "C maj",
+            "start_sec": 0.0,
+            "end_sec": 3.5,
+            "n_windows": 8
+          },
+          {
+            "key": "A min",
+            "start_sec": 4.0,
+            "end_sec": 4.0,
+            "n_windows": 1
+          },
+          {
+            "key": "C maj",
+            "start_sec": 4.5,
+            "end_sec": 7.5,
+            "n_windows": 7
+          },
+          {
+            "key": "A min",
+            "start_sec": 8.0,
+            "end_sec": 9.5,
+            "n_windows": 4
+          },
+          {
+            "key": "D maj",
+            "start_sec": 10.0,
+            "end_sec": 11.0,
+            "n_windows": 3
+          },
+          {
+            "key": "G maj",
+            "start_sec": 11.5,
+            "end_sec": 11.5,
+            "n_windows": 1
+          },
+          {
+            "key": "A min",
+            "start_sec": 12.0,
+            "end_sec": 12.0,
+            "n_windows": 1
+          },
+          {
+            "key": "D min",
+            "start_sec": 12.5,
+            "end_sec": 13.5,
+            "n_windows": 3
+          },
+          {
+            "key": "A min",
+            "start_sec": 14.0,
+            "end_sec": 14.0,
+            "n_windows": 1
+          },
+          {
+            "key": "C maj",
+            "start_sec": 14.5,
+            "end_sec": 14.5,
+            "n_windows": 1
+          },
+          {
+            "key": "A min",
+            "start_sec": 15.0,
+            "end_sec": 15.0,
+            "n_windows": 1
+          },
+          {
+            "key": "D min",
+            "start_sec": 15.5,
+            "end_sec": 16.5,
+            "n_windows": 3
+          }
+        ],
+        "run_key_sequence": [
+          "C maj",
+          "A min",
+          "C maj",
+          "A min",
+          "D maj",
+          "G maj",
+          "A min",
+          "D min",
+          "A min",
+          "C maj",
+          "A min",
+          "D min"
+        ],
+        "is_exact_c_maj_g_maj_c_maj_pattern": false
+      },
+      "E_texture_gated": {
+        "predicted_key_runs": [
+          {
+            "key": "C maj",
+            "start_sec": 0.0,
+            "end_sec": 6.0,
+            "n_windows": 13
+          },
+          {
+            "key": "G maj",
+            "start_sec": 6.5,
+            "end_sec": 16.5,
+            "n_windows": 21
+          }
+        ],
+        "run_key_sequence": [
+          "C maj",
+          "G maj"
+        ],
+        "is_exact_c_maj_g_maj_c_maj_pattern": false
+      }
+    },
+    "l4_chopin_silence_by_variant": {
+      "A_control": {
+        "n_windows_in_region": 9,
+        "n_active_in_region": 9,
+        "n_inactive_in_region": 0
+      },
+      "D_weighted_profile": {
+        "n_windows_in_region": 9,
+        "n_active_in_region": 9,
+        "n_inactive_in_region": 0
+      },
+      "E_texture_gated": {
+        "n_windows_in_region": 9,
+        "n_active_in_region": 9,
+        "n_inactive_in_region": 0
+      }
+    },
+    "gate_usage_summary_by_piece": {
+      "L1": {
+        "n_windows": 106,
+        "n_gate1_density_pass": 100,
+        "gate1_pass_fraction": 0.9433962264150944,
+        "n_gate2_stability_pass": 102,
+        "gate2_pass_fraction": 0.9622641509433962,
+        "n_gate3_margin_pass": 1,
+        "gate3_pass_fraction": 0.009433962264150943,
+        "n_all_gates_pass_weighted_eligible": 1,
+        "all_gates_pass_fraction": 0.009433962264150943,
+        "n_actual_swaps_from_default": 1,
+        "actual_swap_fraction": 0.009433962264150943,
+        "n_swaps_to_minor_mode": 1,
+        "settings": {
+          "density_threshold_active_pc_count_gt": 2,
+          "stability_window_windows": 4,
+          "stability_window_sec": 2.0,
+          "margin_threshold": 0.2,
+          "margin_threshold_source": "pitch_class_uncertainty_diagnostics.DEFAULT_LOW_MARGIN_THRESHOLD (reused verbatim, not re-tuned)",
+          "margin_metric": "normalized top1-vs-top2 score margin computed on the WEIGHTED (variant D) raw scores",
+          "default_backbone": "C (tie-aware continuity) -- documented design choice, see module docstring"
+        }
+      },
+      "L2": {
+        "n_windows": 164,
+        "n_gate1_density_pass": 164,
+        "gate1_pass_fraction": 1.0,
+        "n_gate2_stability_pass": 145,
+        "gate2_pass_fraction": 0.8841463414634146,
+        "n_gate3_margin_pass": 9,
+        "gate3_pass_fraction": 0.054878048780487805,
+        "n_all_gates_pass_weighted_eligible": 9,
+        "all_gates_pass_fraction": 0.054878048780487805,
+        "n_actual_swaps_from_default": 1,
+        "actual_swap_fraction": 0.006097560975609756,
+        "n_swaps_to_minor_mode": 0,
+        "settings": {
+          "density_threshold_active_pc_count_gt": 2,
+          "stability_window_windows": 4,
+          "stability_window_sec": 2.0,
+          "margin_threshold": 0.2,
+          "margin_threshold_source": "pitch_class_uncertainty_diagnostics.DEFAULT_LOW_MARGIN_THRESHOLD (reused verbatim, not re-tuned)",
+          "margin_metric": "normalized top1-vs-top2 score margin computed on the WEIGHTED (variant D) raw scores",
+          "default_backbone": "C (tie-aware continuity) -- documented design choice, see module docstring"
+        }
+      },
+      "L3": {
+        "n_windows": 107,
+        "n_gate1_density_pass": 104,
+        "gate1_pass_fraction": 0.9719626168224299,
+        "n_gate2_stability_pass": 67,
+        "gate2_pass_fraction": 0.6261682242990654,
+        "n_gate3_margin_pass": 1,
+        "gate3_pass_fraction": 0.009345794392523364,
+        "n_all_gates_pass_weighted_eligible": 0,
+        "all_gates_pass_fraction": 0.0,
+        "n_actual_swaps_from_default": 0,
+        "actual_swap_fraction": 0.0,
+        "n_swaps_to_minor_mode": 0,
+        "settings": {
+          "density_threshold_active_pc_count_gt": 2,
+          "stability_window_windows": 4,
+          "stability_window_sec": 2.0,
+          "margin_threshold": 0.2,
+          "margin_threshold_source": "pitch_class_uncertainty_diagnostics.DEFAULT_LOW_MARGIN_THRESHOLD (reused verbatim, not re-tuned)",
+          "margin_metric": "normalized top1-vs-top2 score margin computed on the WEIGHTED (variant D) raw scores",
+          "default_backbone": "C (tie-aware continuity) -- documented design choice, see module docstring"
+        }
+      },
+      "L4": {
+        "n_windows": 216,
+        "n_gate1_density_pass": 214,
+        "gate1_pass_fraction": 0.9907407407407407,
+        "n_gate2_stability_pass": 129,
+        "gate2_pass_fraction": 0.5972222222222222,
+        "n_gate3_margin_pass": 10,
+        "gate3_pass_fraction": 0.046296296296296294,
+        "n_all_gates_pass_weighted_eligible": 10,
+        "all_gates_pass_fraction": 0.046296296296296294,
+        "n_actual_swaps_from_default": 10,
+        "actual_swap_fraction": 0.046296296296296294,
+        "n_swaps_to_minor_mode": 10,
+        "settings": {
+          "density_threshold_active_pc_count_gt": 2,
+          "stability_window_windows": 4,
+          "stability_window_sec": 2.0,
+          "margin_threshold": 0.2,
+          "margin_threshold_source": "pitch_class_uncertainty_diagnostics.DEFAULT_LOW_MARGIN_THRESHOLD (reused verbatim, not re-tuned)",
+          "margin_metric": "normalized top1-vs-top2 score margin computed on the WEIGHTED (variant D) raw scores",
+          "default_backbone": "C (tie-aware continuity) -- documented design choice, see module docstring"
+        }
+      },
+      "L5": {
+        "n_windows": 34,
+        "n_gate1_density_pass": 32,
+        "gate1_pass_fraction": 0.9411764705882353,
+        "n_gate2_stability_pass": 27,
+        "gate2_pass_fraction": 0.7941176470588235,
+        "n_gate3_margin_pass": 0,
+        "gate3_pass_fraction": 0.0,
+        "n_all_gates_pass_weighted_eligible": 0,
+        "all_gates_pass_fraction": 0.0,
+        "n_actual_swaps_from_default": 0,
+        "actual_swap_fraction": 0.0,
+        "n_swaps_to_minor_mode": 0,
+        "settings": {
+          "density_threshold_active_pc_count_gt": 2,
+          "stability_window_windows": 4,
+          "stability_window_sec": 2.0,
+          "margin_threshold": 0.2,
+          "margin_threshold_source": "pitch_class_uncertainty_diagnostics.DEFAULT_LOW_MARGIN_THRESHOLD (reused verbatim, not re-tuned)",
+          "margin_metric": "normalized top1-vs-top2 score margin computed on the WEIGHTED (variant D) raw scores",
+          "default_backbone": "C (tie-aware continuity) -- documented design choice, see module docstring"
+        }
+      },
+      "L6": {
+        "n_windows": 1374,
+        "n_gate1_density_pass": 820,
+        "gate1_pass_fraction": 0.5967976710334789,
+        "n_gate2_stability_pass": 1246,
+        "gate2_pass_fraction": 0.9068413391557496,
+        "n_gate3_margin_pass": 23,
+        "gate3_pass_fraction": 0.016739446870451237,
+        "n_all_gates_pass_weighted_eligible": 22,
+        "all_gates_pass_fraction": 0.01601164483260553,
+        "n_actual_swaps_from_default": 5,
+        "actual_swap_fraction": 0.00363901018922853,
+        "n_swaps_to_minor_mode": 3,
+        "settings": {
+          "density_threshold_active_pc_count_gt": 2,
+          "stability_window_windows": 4,
+          "stability_window_sec": 2.0,
+          "margin_threshold": 0.2,
+          "margin_threshold_source": "pitch_class_uncertainty_diagnostics.DEFAULT_LOW_MARGIN_THRESHOLD (reused verbatim, not re-tuned)",
+          "margin_metric": "normalized top1-vs-top2 score margin computed on the WEIGHTED (variant D) raw scores",
+          "default_backbone": "C (tie-aware continuity) -- documented design choice, see module docstring"
+        }
+      }
+    },
+    "verdict_text": "L3 (F\u00fcr Elise, A minor) strict proportion: A=0.0000 -> E=0.0000 (NOT improved). L4 (Chopin, E minor) strict proportion: A=0.0000 -> E=0.0185 (IMPROVED). L1 (Twinkle) strict proportion: A=1.0000 -> E=0.9906, switches: A=0 -> E=2 (DEGRADED). L6 per-anchor strict deltas (E - A): pre_384s: +0.0000, 384_to_432s: +0.0417, post_432s: -0.0078 (STABLE/preserved). Gate usage (actual swaps to weighted prediction): L1=1, L6=5 (destabilization sources in D), L3=0, L4=10 (where minor recovery must come from, if it improves). OVERALL: texture-gated resolution (E) does NOT achieve both improved strict minor-key recovery and preserved L1/L6 stability simultaneously -- see the deltas and gate-usage counts above for exactly where gating over- or under-fires.",
+    "verdict_flags": {
+      "minor_recovery_improved_L3_via_E": false,
+      "minor_recovery_improved_L4_via_E": true,
+      "L1_stability_preserved_via_E": false,
+      "L6_stability_preserved_via_E": true,
+      "overall_success_E": false
+    }
+  },
+  "notes": "Phase 3H-B: texture-gated non-neural tonic/mode resolver. No chord-id EMA/SRN, Chroma SRN, Transformer, or neural refinement. No dense per-timestep accuracy claimed. Anchors used only for evaluation, never for choosing predictions or gating. Phase 3G-A/3G-B/3H-A treated as frozen and not modified or overwritten."
+}

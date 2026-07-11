@@ -1,0 +1,1431 @@
+{
+  "phase": "phase_3j_b_section_level_candidate_b",
+  "based_on_frozen": [
+    "PHASE3G_A_pitch_class_corpus_metrics.json (read-only)",
+    "03_MIDI_Data/derived_phase3g_corpus/*.npy (read-only)",
+    "PHASE3J_A_section_level_resolver_design.md (design spec implemented here)"
+  ],
+  "pre_registered_config": {
+    "MIN_SEGMENT_WINDOWS": 4,
+    "MIN_SEGMENT_DURATION_SEC": 2.0,
+    "BRIEF_INTERRUPTION_MAX_WINDOWS": 3,
+    "MERGE_RULE": "merge a brief interruption only when the stable collection on both sides is identical; a brief run between different collections becomes its own unresolved 'transition' segment",
+    "SEGMENT_DETECTION_MODE": "offline, whole-sequence, label-free run-length encoding of the Stage 2 collection sequence (Stage 1's key_id collapsed via collection_class) -- no anchor, no lookahead-into-the-future beyond the piece's own already-fully-computed Stage 1 output",
+    "AGGREGATION_SOURCE": "sum of raw (pre-threshold) chroma across all windows in a stable segment; verified numerically equivalent (see verify_chroma_score_linearity) to scoring each window from raw chroma and summing the per-window scores, by linearity of the fixed SCALE_TEMPLATES matmul -- thresholded chroma is never aggregated. NOTE: this equivalence is checked against raw-chroma-derived per-window scores computed in this script, NOT against the frozen derived_phase3g_corpus raw_scores.npy array, because that array is actually thresholded_chroma @ SCALE_TEMPLATES.T (Phase 3B's analyze_piece naming: 'raw' = un-normalized, not un-thresholded) -- see verify_chroma_score_linearity's docstring for the full explanation.",
+    "AMBIGUOUS_FALLBACK": "segment majority vote over the segment's own frozen Stage 1 key_id values (never index-order argmax, never an anchor)",
+    "MEDIANT_MARGIN_THRESHOLD": 0.02,
+    "LEADING_TONE_PRESENCE_THRESHOLD": 0.02,
+    "LEADING_TONE_ASYMMETRY": "presence of the raised leading tone is POSITIVE evidence for the minor candidate and, when present, settles the decision toward minor regardless of the mediant cue; ABSENCE of the raised leading tone is NEUTRAL -- it never itself counts as evidence for major, and the decision in that case rests entirely on the (symmetric) mediant cue",
+    "STAGE6_TRANSITION_UNDEFINED_CONVENTION": "transition and undefined segments are NOT resolved by Candidate B; their windows in key_id_section_resolved preserve Stage 1's own frozen key_id verbatim, and are additionally flagged False in a parallel is_section_resolved boolean mask so 'genuinely resolved by Candidate B' vs. 'fell back to frozen Stage 1' is always distinguishable downstream"
+  },
+  "sensitivity_grid": {
+    "MIN_SEGMENT_WINDOWS": [
+      4,
+      6,
+      8
+    ],
+    "BRIEF_INTERRUPTION_MAX_WINDOWS": [
+      1,
+      3
+    ]
+  },
+  "pieces": {
+    "L1": {
+      "display_name": "Twinkle.mid",
+      "n_windows": 106,
+      "n_segments_total": 1,
+      "n_segments_stable": 1,
+      "n_segments_transition": 0,
+      "n_segments_undefined": 0,
+      "fraction_windows_transition": 0.0,
+      "fraction_windows_undefined": 0.0,
+      "fraction_windows_section_resolved": 1.0,
+      "segment_duration_sec_distribution": {
+        "mean": 53.0,
+        "median": 53.0,
+        "min": 53.0,
+        "max": 53.0,
+        "n_stable_segments": 1
+      },
+      "frozen_stage1_piece_level": {
+        "n_predictions": 106,
+        "n_active": 106,
+        "active_fraction": 1.0,
+        "n_unique_predicted_keys": 1,
+        "unique_predicted_keys": [
+          "C maj"
+        ],
+        "dominant_predicted_keys": [
+          {
+            "key": "C maj",
+            "count": 106,
+            "fraction": 1.0
+          }
+        ],
+        "n_key_switch_eligible_transitions": 105,
+        "n_key_switches": 0,
+        "key_switch_proportion": 0.0,
+        "mean_jump": 0.0,
+        "max_jump": 0.0,
+        "n_large_jumps": 0,
+        "large_jump_proportion": 0.0,
+        "mean_tie_count_active_windows": 5.226415094339623,
+        "max_tie_count_active_windows": 14,
+        "n_windows_predicted_minor_mode": 0,
+        "fraction_defined_windows_predicted_minor_mode": 0.0
+      },
+      "resolved_piece_level": {
+        "n_predictions": 106,
+        "n_active": 106,
+        "active_fraction": 1.0,
+        "n_unique_predicted_keys": 1,
+        "unique_predicted_keys": [
+          "C maj"
+        ],
+        "dominant_predicted_keys": [
+          {
+            "key": "C maj",
+            "count": 106,
+            "fraction": 1.0
+          }
+        ],
+        "n_key_switch_eligible_transitions": 105,
+        "n_key_switches": 0,
+        "key_switch_proportion": 0.0,
+        "mean_jump": 0.0,
+        "max_jump": 0.0,
+        "n_large_jumps": 0,
+        "large_jump_proportion": 0.0,
+        "mean_tie_count_active_windows": 5.226415094339623,
+        "max_tie_count_active_windows": 14,
+        "n_windows_predicted_minor_mode": 0,
+        "fraction_defined_windows_predicted_minor_mode": 0.0
+      },
+      "frozen_stage1_anchors": {
+        "full_piece": {
+          "expected_key": "C Major",
+          "n_predictions": 106,
+          "n_defined": 106,
+          "strict_expected_key_proportion": 1.0,
+          "collection_equivalent_key": "A min",
+          "collection_equivalent_proportion": 1.0,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 106,
+            "n_selected_when_tied": 106,
+            "n_lost_to_tiebreak": 0
+          },
+          "mismatch_predicted_key_breakdown": {},
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        }
+      },
+      "resolved_anchors": {
+        "full_piece": {
+          "expected_key": "C Major",
+          "n_predictions": 106,
+          "n_defined": 106,
+          "strict_expected_key_proportion": 1.0,
+          "collection_equivalent_key": "A min",
+          "collection_equivalent_proportion": 1.0,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 106,
+            "n_selected_when_tied": 106,
+            "n_lost_to_tiebreak": 0
+          },
+          "mismatch_predicted_key_breakdown": {},
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        }
+      },
+      "decision_source_breakdown": {
+        "total_stable_windows": 106,
+        "windows_by_decision_source": {
+          "fallback_majority_vote_ambiguous": 106
+        },
+        "minor_windows_by_decision_source": {},
+        "major_windows_by_decision_source": {
+          "fallback_majority_vote_ambiguous": 106
+        },
+        "total_minor_windows": 0,
+        "minor_windows_from_leading_tone_fraction": null,
+        "minor_windows_from_mediant_signal_fraction": null,
+        "minor_windows_from_fallback_fraction": null
+      },
+      "linearity_check_summary": {
+        "n_segments_checked": 1,
+        "all_passed": true,
+        "max_abs_error_overall": 0.0
+      }
+    },
+    "L2": {
+      "display_name": "Bach \u2014 Minuet in G Major, BWV Anh. 114",
+      "n_windows": 164,
+      "n_segments_total": 13,
+      "n_segments_stable": 13,
+      "n_segments_transition": 0,
+      "n_segments_undefined": 0,
+      "fraction_windows_transition": 0.0,
+      "fraction_windows_undefined": 0.0,
+      "fraction_windows_section_resolved": 1.0,
+      "segment_duration_sec_distribution": {
+        "mean": 6.3076923076923075,
+        "median": 6.0,
+        "min": 2.5,
+        "max": 12.5,
+        "n_stable_segments": 13
+      },
+      "frozen_stage1_piece_level": {
+        "n_predictions": 164,
+        "n_active": 164,
+        "active_fraction": 1.0,
+        "n_unique_predicted_keys": 3,
+        "unique_predicted_keys": [
+          "C maj",
+          "D maj",
+          "G maj"
+        ],
+        "dominant_predicted_keys": [
+          {
+            "key": "G maj",
+            "count": 69,
+            "fraction": 0.42073170731707316
+          },
+          {
+            "key": "C maj",
+            "count": 49,
+            "fraction": 0.29878048780487804
+          },
+          {
+            "key": "D maj",
+            "count": 46,
+            "fraction": 0.2804878048780488
+          }
+        ],
+        "n_key_switch_eligible_transitions": 163,
+        "n_key_switches": 12,
+        "key_switch_proportion": 0.0736196319018405,
+        "mean_jump": 0.07975460122699386,
+        "max_jump": 2.0,
+        "n_large_jumps": 0,
+        "large_jump_proportion": 0.0,
+        "mean_tie_count_active_windows": 3.1463414634146343,
+        "max_tie_count_active_windows": 6,
+        "n_windows_predicted_minor_mode": 0,
+        "fraction_defined_windows_predicted_minor_mode": 0.0
+      },
+      "resolved_piece_level": {
+        "n_predictions": 164,
+        "n_active": 164,
+        "active_fraction": 1.0,
+        "n_unique_predicted_keys": 5,
+        "unique_predicted_keys": [
+          "C maj",
+          "G maj",
+          "E min",
+          "A min",
+          "B min"
+        ],
+        "dominant_predicted_keys": [
+          {
+            "key": "E min",
+            "count": 46,
+            "fraction": 0.2804878048780488
+          },
+          {
+            "key": "B min",
+            "count": 46,
+            "fraction": 0.2804878048780488
+          },
+          {
+            "key": "A min",
+            "count": 44,
+            "fraction": 0.2682926829268293
+          },
+          {
+            "key": "G maj",
+            "count": 23,
+            "fraction": 0.1402439024390244
+          },
+          {
+            "key": "C maj",
+            "count": 5,
+            "fraction": 0.03048780487804878
+          }
+        ],
+        "n_key_switch_eligible_transitions": 163,
+        "n_key_switches": 12,
+        "key_switch_proportion": 0.0736196319018405,
+        "mean_jump": 0.12883435582822086,
+        "max_jump": 5.0,
+        "n_large_jumps": 1,
+        "large_jump_proportion": 0.006134969325153374,
+        "mean_tie_count_active_windows": 3.1463414634146343,
+        "max_tie_count_active_windows": 6,
+        "n_windows_predicted_minor_mode": 136,
+        "fraction_defined_windows_predicted_minor_mode": 0.8292682926829268
+      },
+      "frozen_stage1_anchors": {
+        "full_piece": {
+          "expected_key": "G Major",
+          "n_predictions": 164,
+          "n_defined": 164,
+          "strict_expected_key_proportion": 0.42073170731707316,
+          "collection_equivalent_key": "E min",
+          "collection_equivalent_proportion": 0.42073170731707316,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 142,
+            "n_selected_when_tied": 69,
+            "n_lost_to_tiebreak": 73
+          },
+          "mismatch_predicted_key_breakdown": {
+            "C maj": 49,
+            "D maj": 46
+          },
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        }
+      },
+      "resolved_anchors": {
+        "full_piece": {
+          "expected_key": "G Major",
+          "n_predictions": 164,
+          "n_defined": 164,
+          "strict_expected_key_proportion": 0.1402439024390244,
+          "collection_equivalent_key": "E min",
+          "collection_equivalent_proportion": 0.42073170731707316,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 142,
+            "n_selected_when_tied": 23,
+            "n_lost_to_tiebreak": 119
+          },
+          "mismatch_predicted_key_breakdown": {
+            "A min": 44,
+            "E min": 46,
+            "C maj": 5,
+            "B min": 46
+          },
+          "n_windows_predicted_minor_mode": 136,
+          "fraction_defined_windows_predicted_minor_mode": 0.8292682926829268
+        }
+      },
+      "decision_source_breakdown": {
+        "total_stable_windows": 164,
+        "windows_by_decision_source": {
+          "mediant_signal": 159,
+          "fallback_majority_vote_ambiguous": 5
+        },
+        "minor_windows_by_decision_source": {
+          "mediant_signal": 136
+        },
+        "major_windows_by_decision_source": {
+          "mediant_signal": 23,
+          "fallback_majority_vote_ambiguous": 5
+        },
+        "total_minor_windows": 136,
+        "minor_windows_from_leading_tone_fraction": 0.0,
+        "minor_windows_from_mediant_signal_fraction": 1.0,
+        "minor_windows_from_fallback_fraction": 0.0
+      },
+      "linearity_check_summary": {
+        "n_segments_checked": 13,
+        "all_passed": true,
+        "max_abs_error_overall": 0.0
+      }
+    },
+    "L3": {
+      "display_name": "Beethoven \u2014 F\u00fcr Elise (opening excerpt, [0.0, 54.0]s)",
+      "n_windows": 107,
+      "n_segments_total": 8,
+      "n_segments_stable": 5,
+      "n_segments_transition": 2,
+      "n_segments_undefined": 1,
+      "fraction_windows_transition": 0.037383177570093455,
+      "fraction_windows_undefined": 0.009345794392523364,
+      "fraction_windows_section_resolved": 0.9532710280373832,
+      "segment_duration_sec_distribution": {
+        "mean": 10.2,
+        "median": 5.0,
+        "min": 2.0,
+        "max": 26.5,
+        "n_stable_segments": 5
+      },
+      "frozen_stage1_piece_level": {
+        "n_predictions": 107,
+        "n_active": 106,
+        "active_fraction": 0.9906542056074766,
+        "n_unique_predicted_keys": 4,
+        "unique_predicted_keys": [
+          "C maj",
+          "E maj",
+          "A maj",
+          "A# maj"
+        ],
+        "dominant_predicted_keys": [
+          {
+            "key": "C maj",
+            "count": 76,
+            "fraction": 0.7169811320754716
+          },
+          {
+            "key": "E maj",
+            "count": 21,
+            "fraction": 0.19811320754716982
+          },
+          {
+            "key": "A maj",
+            "count": 5,
+            "fraction": 0.04716981132075472
+          },
+          {
+            "key": "A# maj",
+            "count": 4,
+            "fraction": 0.03773584905660377
+          }
+        ],
+        "n_key_switch_eligible_transitions": 105,
+        "n_key_switches": 16,
+        "key_switch_proportion": 0.1523809523809524,
+        "mean_jump": 0.5904761904761905,
+        "max_jump": 6.0,
+        "n_large_jumps": 15,
+        "large_jump_proportion": 0.14285714285714285,
+        "mean_tie_count_active_windows": 3.547169811320755,
+        "max_tie_count_active_windows": 14,
+        "n_windows_predicted_minor_mode": 0,
+        "fraction_defined_windows_predicted_minor_mode": 0.0
+      },
+      "resolved_piece_level": {
+        "n_predictions": 107,
+        "n_active": 106,
+        "active_fraction": 0.9906542056074766,
+        "n_unique_predicted_keys": 6,
+        "unique_predicted_keys": [
+          "C maj",
+          "E maj",
+          "A# maj",
+          "C# min",
+          "F# min",
+          "A min"
+        ],
+        "dominant_predicted_keys": [
+          {
+            "key": "C maj",
+            "count": 53,
+            "fraction": 0.5
+          },
+          {
+            "key": "A min",
+            "count": 31,
+            "fraction": 0.29245283018867924
+          },
+          {
+            "key": "C# min",
+            "count": 10,
+            "fraction": 0.09433962264150944
+          },
+          {
+            "key": "F# min",
+            "count": 4,
+            "fraction": 0.03773584905660377
+          },
+          {
+            "key": "E maj",
+            "count": 4,
+            "fraction": 0.03773584905660377
+          }
+        ],
+        "n_key_switch_eligible_transitions": 105,
+        "n_key_switches": 6,
+        "key_switch_proportion": 0.05714285714285714,
+        "mean_jump": 0.2761904761904762,
+        "max_jump": 6.0,
+        "n_large_jumps": 5,
+        "large_jump_proportion": 0.047619047619047616,
+        "mean_tie_count_active_windows": 3.547169811320755,
+        "max_tie_count_active_windows": 14,
+        "n_windows_predicted_minor_mode": 45,
+        "fraction_defined_windows_predicted_minor_mode": 0.42452830188679247
+      },
+      "frozen_stage1_anchors": {
+        "full_excerpt": {
+          "expected_key": "A Minor",
+          "n_predictions": 107,
+          "n_defined": 106,
+          "strict_expected_key_proportion": 0.0,
+          "collection_equivalent_key": "C maj",
+          "collection_equivalent_proportion": 0.7169811320754716,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 76,
+            "n_selected_when_tied": 0,
+            "n_lost_to_tiebreak": 76
+          },
+          "mismatch_predicted_key_breakdown": {
+            "C maj": 76,
+            "E maj": 21,
+            "A maj": 5,
+            "A# maj": 4
+          },
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        }
+      },
+      "resolved_anchors": {
+        "full_excerpt": {
+          "expected_key": "A Minor",
+          "n_predictions": 107,
+          "n_defined": 106,
+          "strict_expected_key_proportion": 0.29245283018867924,
+          "collection_equivalent_key": "C maj",
+          "collection_equivalent_proportion": 0.7924528301886793,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 76,
+            "n_selected_when_tied": 26,
+            "n_lost_to_tiebreak": 50
+          },
+          "mismatch_predicted_key_breakdown": {
+            "C# min": 10,
+            "C maj": 53,
+            "F# min": 4,
+            "E maj": 4,
+            "A# maj": 4
+          },
+          "n_windows_predicted_minor_mode": 45,
+          "fraction_defined_windows_predicted_minor_mode": 0.42452830188679247
+        }
+      },
+      "decision_source_breakdown": {
+        "total_stable_windows": 102,
+        "windows_by_decision_source": {
+          "leading_tone_positive_evidence": 31,
+          "mediant_signal": 71
+        },
+        "minor_windows_by_decision_source": {
+          "leading_tone_positive_evidence": 31,
+          "mediant_signal": 14
+        },
+        "major_windows_by_decision_source": {
+          "mediant_signal": 57
+        },
+        "total_minor_windows": 45,
+        "minor_windows_from_leading_tone_fraction": 0.6888888888888889,
+        "minor_windows_from_mediant_signal_fraction": 0.3111111111111111,
+        "minor_windows_from_fallback_fraction": 0.0
+      },
+      "linearity_check_summary": {
+        "n_segments_checked": 5,
+        "all_passed": true,
+        "max_abs_error_overall": 0.0
+      }
+    },
+    "L4": {
+      "display_name": "Chopin \u2014 Prelude in E minor, Op. 28 No. 4",
+      "n_windows": 216,
+      "n_segments_total": 25,
+      "n_segments_stable": 20,
+      "n_segments_transition": 5,
+      "n_segments_undefined": 0,
+      "fraction_windows_transition": 0.05092592592592592,
+      "fraction_windows_undefined": 0.0,
+      "fraction_windows_section_resolved": 0.9490740740740741,
+      "segment_duration_sec_distribution": {
+        "mean": 5.125,
+        "median": 3.5,
+        "min": 2.0,
+        "max": 14.5,
+        "n_stable_segments": 20
+      },
+      "frozen_stage1_piece_level": {
+        "n_predictions": 216,
+        "n_active": 216,
+        "active_fraction": 1.0,
+        "n_unique_predicted_keys": 7,
+        "unique_predicted_keys": [
+          "C maj",
+          "D maj",
+          "E maj",
+          "F maj",
+          "F# maj",
+          "G maj",
+          "A maj"
+        ],
+        "dominant_predicted_keys": [
+          {
+            "key": "G maj",
+            "count": 106,
+            "fraction": 0.49074074074074076
+          },
+          {
+            "key": "C maj",
+            "count": 52,
+            "fraction": 0.24074074074074073
+          },
+          {
+            "key": "E maj",
+            "count": 27,
+            "fraction": 0.125
+          },
+          {
+            "key": "D maj",
+            "count": 14,
+            "fraction": 0.06481481481481481
+          },
+          {
+            "key": "A maj",
+            "count": 7,
+            "fraction": 0.032407407407407406
+          }
+        ],
+        "n_key_switch_eligible_transitions": 215,
+        "n_key_switches": 38,
+        "key_switch_proportion": 0.17674418604651163,
+        "mean_jump": 0.4372093023255814,
+        "max_jump": 6.0,
+        "n_large_jumps": 20,
+        "large_jump_proportion": 0.09302325581395349,
+        "mean_tie_count_active_windows": 2.6018518518518516,
+        "max_tie_count_active_windows": 14,
+        "n_windows_predicted_minor_mode": 0,
+        "fraction_defined_windows_predicted_minor_mode": 0.0
+      },
+      "resolved_piece_level": {
+        "n_predictions": 216,
+        "n_active": 216,
+        "active_fraction": 1.0,
+        "n_unique_predicted_keys": 10,
+        "unique_predicted_keys": [
+          "C maj",
+          "D maj",
+          "E maj",
+          "F maj",
+          "G maj",
+          "A maj",
+          "C# min",
+          "E min",
+          "A min",
+          "B min"
+        ],
+        "dominant_predicted_keys": [
+          {
+            "key": "E min",
+            "count": 108,
+            "fraction": 0.5
+          },
+          {
+            "key": "A min",
+            "count": 34,
+            "fraction": 0.1574074074074074
+          },
+          {
+            "key": "C maj",
+            "count": 26,
+            "fraction": 0.12037037037037036
+          },
+          {
+            "key": "C# min",
+            "count": 19,
+            "fraction": 0.08796296296296297
+          },
+          {
+            "key": "B min",
+            "count": 7,
+            "fraction": 0.032407407407407406
+          }
+        ],
+        "n_key_switch_eligible_transitions": 215,
+        "n_key_switches": 24,
+        "key_switch_proportion": 0.11162790697674418,
+        "mean_jump": 0.26976744186046514,
+        "max_jump": 5.0,
+        "n_large_jumps": 12,
+        "large_jump_proportion": 0.05581395348837209,
+        "mean_tie_count_active_windows": 2.6018518518518516,
+        "max_tie_count_active_windows": 14,
+        "n_windows_predicted_minor_mode": 168,
+        "fraction_defined_windows_predicted_minor_mode": 0.7777777777777778
+      },
+      "frozen_stage1_anchors": {
+        "full_piece": {
+          "expected_key": "E Minor",
+          "n_predictions": 216,
+          "n_defined": 216,
+          "strict_expected_key_proportion": 0.0,
+          "collection_equivalent_key": "G maj",
+          "collection_equivalent_proportion": 0.49074074074074076,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 135,
+            "n_selected_when_tied": 0,
+            "n_lost_to_tiebreak": 135
+          },
+          "mismatch_predicted_key_breakdown": {
+            "C maj": 52,
+            "G maj": 106,
+            "E maj": 27,
+            "A maj": 7,
+            "D maj": 14,
+            "F# maj": 3,
+            "F maj": 7
+          },
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        }
+      },
+      "resolved_anchors": {
+        "full_piece": {
+          "expected_key": "E Minor",
+          "n_predictions": 216,
+          "n_defined": 216,
+          "strict_expected_key_proportion": 0.5,
+          "collection_equivalent_key": "G maj",
+          "collection_equivalent_proportion": 0.5092592592592593,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 135,
+            "n_selected_when_tied": 105,
+            "n_lost_to_tiebreak": 30
+          },
+          "mismatch_predicted_key_breakdown": {
+            "C maj": 26,
+            "C# min": 19,
+            "A min": 34,
+            "A maj": 4,
+            "E maj": 5,
+            "B min": 7,
+            "F maj": 6,
+            "G maj": 2,
+            "D maj": 5
+          },
+          "n_windows_predicted_minor_mode": 168,
+          "fraction_defined_windows_predicted_minor_mode": 0.7777777777777778
+        }
+      },
+      "decision_source_breakdown": {
+        "total_stable_windows": 205,
+        "windows_by_decision_source": {
+          "mediant_signal": 50,
+          "leading_tone_positive_evidence": 141,
+          "fallback_majority_vote_ambiguous": 14
+        },
+        "minor_windows_by_decision_source": {
+          "leading_tone_positive_evidence": 141,
+          "mediant_signal": 27
+        },
+        "major_windows_by_decision_source": {
+          "mediant_signal": 23,
+          "fallback_majority_vote_ambiguous": 14
+        },
+        "total_minor_windows": 168,
+        "minor_windows_from_leading_tone_fraction": 0.8392857142857143,
+        "minor_windows_from_mediant_signal_fraction": 0.16071428571428573,
+        "minor_windows_from_fallback_fraction": 0.0
+      },
+      "linearity_check_summary": {
+        "n_segments_checked": 20,
+        "all_passed": true,
+        "max_abs_error_overall": 0.0
+      },
+      "chopin_silence_region_unchanged_check": {
+        "n_windows_in_region": 9,
+        "n_inactive_in_region": 0,
+        "note": "Uses the same frozen Stage 1 `active` array as every prior phase -- inactivity is not redefined here."
+      }
+    },
+    "L5": {
+      "display_name": "Clementi \u2014 Sonatina Op. 36 No. 1, I (exposition, [0.0, 17.3]s)",
+      "n_windows": 34,
+      "n_segments_total": 3,
+      "n_segments_stable": 3,
+      "n_segments_transition": 0,
+      "n_segments_undefined": 0,
+      "fraction_windows_transition": 0.0,
+      "fraction_windows_undefined": 0.0,
+      "fraction_windows_section_resolved": 1.0,
+      "segment_duration_sec_distribution": {
+        "mean": 5.666666666666667,
+        "median": 5.5,
+        "min": 5.0,
+        "max": 6.5,
+        "n_stable_segments": 3
+      },
+      "frozen_stage1_piece_level": {
+        "n_predictions": 34,
+        "n_active": 34,
+        "active_fraction": 1.0,
+        "n_unique_predicted_keys": 2,
+        "unique_predicted_keys": [
+          "C maj",
+          "G maj"
+        ],
+        "dominant_predicted_keys": [
+          {
+            "key": "C maj",
+            "count": 23,
+            "fraction": 0.6764705882352942
+          },
+          {
+            "key": "G maj",
+            "count": 11,
+            "fraction": 0.3235294117647059
+          }
+        ],
+        "n_key_switch_eligible_transitions": 33,
+        "n_key_switches": 2,
+        "key_switch_proportion": 0.06060606060606061,
+        "mean_jump": 0.06060606060606061,
+        "max_jump": 1.0,
+        "n_large_jumps": 0,
+        "large_jump_proportion": 0.0,
+        "mean_tie_count_active_windows": 4.294117647058823,
+        "max_tie_count_active_windows": 14,
+        "n_windows_predicted_minor_mode": 0,
+        "fraction_defined_windows_predicted_minor_mode": 0.0
+      },
+      "resolved_piece_level": {
+        "n_predictions": 34,
+        "n_active": 34,
+        "active_fraction": 1.0,
+        "n_unique_predicted_keys": 3,
+        "unique_predicted_keys": [
+          "C maj",
+          "E min",
+          "A min"
+        ],
+        "dominant_predicted_keys": [
+          {
+            "key": "A min",
+            "count": 13,
+            "fraction": 0.38235294117647056
+          },
+          {
+            "key": "E min",
+            "count": 11,
+            "fraction": 0.3235294117647059
+          },
+          {
+            "key": "C maj",
+            "count": 10,
+            "fraction": 0.29411764705882354
+          }
+        ],
+        "n_key_switch_eligible_transitions": 33,
+        "n_key_switches": 2,
+        "key_switch_proportion": 0.06060606060606061,
+        "mean_jump": 0.15151515151515152,
+        "max_jump": 4.0,
+        "n_large_jumps": 1,
+        "large_jump_proportion": 0.030303030303030304,
+        "mean_tie_count_active_windows": 4.294117647058823,
+        "max_tie_count_active_windows": 14,
+        "n_windows_predicted_minor_mode": 24,
+        "fraction_defined_windows_predicted_minor_mode": 0.7058823529411765
+      },
+      "frozen_stage1_anchors": {
+        "approx_first_half": {
+          "expected_key": "C Major",
+          "n_predictions": 18,
+          "n_defined": 18,
+          "strict_expected_key_proportion": 0.7222222222222222,
+          "collection_equivalent_key": "A min",
+          "collection_equivalent_proportion": 0.7222222222222222,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 13,
+            "n_selected_when_tied": 13,
+            "n_lost_to_tiebreak": 0
+          },
+          "mismatch_predicted_key_breakdown": {
+            "G maj": 5
+          },
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        },
+        "approx_second_half": {
+          "expected_key": "G Major",
+          "n_predictions": 16,
+          "n_defined": 16,
+          "strict_expected_key_proportion": 0.375,
+          "collection_equivalent_key": "E min",
+          "collection_equivalent_proportion": 0.375,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 16,
+            "n_selected_when_tied": 6,
+            "n_lost_to_tiebreak": 10
+          },
+          "mismatch_predicted_key_breakdown": {
+            "C maj": 10
+          },
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        }
+      },
+      "resolved_anchors": {
+        "approx_first_half": {
+          "expected_key": "C Major",
+          "n_predictions": 18,
+          "n_defined": 18,
+          "strict_expected_key_proportion": 0.0,
+          "collection_equivalent_key": "A min",
+          "collection_equivalent_proportion": 0.7222222222222222,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 13,
+            "n_selected_when_tied": 0,
+            "n_lost_to_tiebreak": 13
+          },
+          "mismatch_predicted_key_breakdown": {
+            "A min": 13,
+            "E min": 5
+          },
+          "n_windows_predicted_minor_mode": 18,
+          "fraction_defined_windows_predicted_minor_mode": 1.0
+        },
+        "approx_second_half": {
+          "expected_key": "G Major",
+          "n_predictions": 16,
+          "n_defined": 16,
+          "strict_expected_key_proportion": 0.0,
+          "collection_equivalent_key": "E min",
+          "collection_equivalent_proportion": 0.375,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 16,
+            "n_selected_when_tied": 0,
+            "n_lost_to_tiebreak": 16
+          },
+          "mismatch_predicted_key_breakdown": {
+            "E min": 6,
+            "C maj": 10
+          },
+          "n_windows_predicted_minor_mode": 6,
+          "fraction_defined_windows_predicted_minor_mode": 0.375
+        }
+      },
+      "decision_source_breakdown": {
+        "total_stable_windows": 34,
+        "windows_by_decision_source": {
+          "mediant_signal": 24,
+          "fallback_majority_vote_ambiguous": 10
+        },
+        "minor_windows_by_decision_source": {
+          "mediant_signal": 24
+        },
+        "major_windows_by_decision_source": {
+          "fallback_majority_vote_ambiguous": 10
+        },
+        "total_minor_windows": 24,
+        "minor_windows_from_leading_tone_fraction": 0.0,
+        "minor_windows_from_mediant_signal_fraction": 1.0,
+        "minor_windows_from_fallback_fraction": 0.0
+      },
+      "linearity_check_summary": {
+        "n_segments_checked": 3,
+        "all_passed": true,
+        "max_abs_error_overall": 0.0
+      }
+    },
+    "L6": {
+      "display_name": "Twinkle 12.mid (Mozart 12 Variations)",
+      "n_windows": 1374,
+      "n_segments_total": 9,
+      "n_segments_stable": 7,
+      "n_segments_transition": 1,
+      "n_segments_undefined": 1,
+      "fraction_windows_transition": 0.001455604075691412,
+      "fraction_windows_undefined": 0.07496360989810771,
+      "fraction_windows_section_resolved": 0.9235807860262009,
+      "segment_duration_sec_distribution": {
+        "mean": 90.64285714285714,
+        "median": 48.0,
+        "min": 6.0,
+        "max": 334.5,
+        "n_stable_segments": 7
+      },
+      "frozen_stage1_piece_level": {
+        "n_predictions": 1374,
+        "n_active": 1271,
+        "active_fraction": 0.9250363901018923,
+        "n_unique_predicted_keys": 4,
+        "unique_predicted_keys": [
+          "C maj",
+          "D# maj",
+          "G maj",
+          "A# maj"
+        ],
+        "dominant_predicted_keys": [
+          {
+            "key": "C maj",
+            "count": 1155,
+            "fraction": 0.9087332808811959
+          },
+          {
+            "key": "D# maj",
+            "count": 90,
+            "fraction": 0.07081038552321008
+          },
+          {
+            "key": "G maj",
+            "count": 24,
+            "fraction": 0.01888276947285602
+          },
+          {
+            "key": "A# maj",
+            "count": 2,
+            "fraction": 0.0015735641227380016
+          }
+        ],
+        "n_key_switch_eligible_transitions": 1270,
+        "n_key_switches": 11,
+        "key_switch_proportion": 0.008661417322834646,
+        "mean_jump": 0.01732283464566929,
+        "max_jump": 3.0,
+        "n_large_jumps": 5,
+        "large_jump_proportion": 0.003937007874015748,
+        "mean_tie_count_active_windows": 6.709677419354839,
+        "max_tie_count_active_windows": 14,
+        "n_windows_predicted_minor_mode": 0,
+        "fraction_defined_windows_predicted_minor_mode": 0.0
+      },
+      "resolved_piece_level": {
+        "n_predictions": 1374,
+        "n_active": 1271,
+        "active_fraction": 0.9250363901018923,
+        "n_unique_predicted_keys": 5,
+        "unique_predicted_keys": [
+          "C maj",
+          "D# maj",
+          "A# maj",
+          "E min",
+          "A min"
+        ],
+        "dominant_predicted_keys": [
+          {
+            "key": "A min",
+            "count": 861,
+            "fraction": 0.6774193548387096
+          },
+          {
+            "key": "C maj",
+            "count": 288,
+            "fraction": 0.22659323367427223
+          },
+          {
+            "key": "D# maj",
+            "count": 96,
+            "fraction": 0.07553107789142408
+          },
+          {
+            "key": "E min",
+            "count": 24,
+            "fraction": 0.01888276947285602
+          },
+          {
+            "key": "A# maj",
+            "count": 2,
+            "fraction": 0.0015735641227380016
+          }
+        ],
+        "n_key_switch_eligible_transitions": 1270,
+        "n_key_switches": 7,
+        "key_switch_proportion": 0.005511811023622047,
+        "mean_jump": 0.01732283464566929,
+        "max_jump": 6.0,
+        "n_large_jumps": 4,
+        "large_jump_proportion": 0.0031496062992125984,
+        "mean_tie_count_active_windows": 6.709677419354839,
+        "max_tie_count_active_windows": 14,
+        "n_windows_predicted_minor_mode": 885,
+        "fraction_defined_windows_predicted_minor_mode": 0.6963021243115657
+      },
+      "frozen_stage1_anchors": {
+        "pre_384s": {
+          "expected_key": "C Major",
+          "n_predictions": 768,
+          "n_defined": 665,
+          "strict_expected_key_proportion": 1.0,
+          "collection_equivalent_key": "A min",
+          "collection_equivalent_proportion": 1.0,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 665,
+            "n_selected_when_tied": 665,
+            "n_lost_to_tiebreak": 0
+          },
+          "mismatch_predicted_key_breakdown": {},
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        },
+        "384_to_432s": {
+          "expected_key": "Eb Major",
+          "n_predictions": 96,
+          "n_defined": 96,
+          "strict_expected_key_proportion": 0.8958333333333334,
+          "collection_equivalent_key": "C min",
+          "collection_equivalent_proportion": 0.8958333333333334,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 93,
+            "n_selected_when_tied": 86,
+            "n_lost_to_tiebreak": 7
+          },
+          "mismatch_predicted_key_breakdown": {
+            "C maj": 10
+          },
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        },
+        "post_432s": {
+          "expected_key": "C Major",
+          "n_predictions": 510,
+          "n_defined": 510,
+          "strict_expected_key_proportion": 0.9411764705882353,
+          "collection_equivalent_key": "A min",
+          "collection_equivalent_proportion": 0.9411764705882353,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 480,
+            "n_selected_when_tied": 480,
+            "n_lost_to_tiebreak": 0
+          },
+          "mismatch_predicted_key_breakdown": {
+            "D# maj": 4,
+            "A# maj": 2,
+            "G maj": 24
+          },
+          "n_windows_predicted_minor_mode": 0,
+          "fraction_defined_windows_predicted_minor_mode": 0.0
+        }
+      },
+      "resolved_anchors": {
+        "pre_384s": {
+          "expected_key": "C Major",
+          "n_predictions": 768,
+          "n_defined": 665,
+          "strict_expected_key_proportion": 0.0,
+          "collection_equivalent_key": "A min",
+          "collection_equivalent_proportion": 1.0,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 665,
+            "n_selected_when_tied": 0,
+            "n_lost_to_tiebreak": 665
+          },
+          "mismatch_predicted_key_breakdown": {
+            "A min": 665
+          },
+          "n_windows_predicted_minor_mode": 665,
+          "fraction_defined_windows_predicted_minor_mode": 1.0
+        },
+        "384_to_432s": {
+          "expected_key": "Eb Major",
+          "n_predictions": 96,
+          "n_defined": 96,
+          "strict_expected_key_proportion": 0.9583333333333334,
+          "collection_equivalent_key": "C min",
+          "collection_equivalent_proportion": 0.9583333333333334,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 93,
+            "n_selected_when_tied": 92,
+            "n_lost_to_tiebreak": 1
+          },
+          "mismatch_predicted_key_breakdown": {
+            "A min": 4
+          },
+          "n_windows_predicted_minor_mode": 4,
+          "fraction_defined_windows_predicted_minor_mode": 0.041666666666666664
+        },
+        "post_432s": {
+          "expected_key": "C Major",
+          "n_predictions": 510,
+          "n_defined": 510,
+          "strict_expected_key_proportion": 0.5647058823529412,
+          "collection_equivalent_key": "A min",
+          "collection_equivalent_proportion": 0.9411764705882353,
+          "expected_key_in_top_tie": {
+            "n_tied_for_max": 480,
+            "n_selected_when_tied": 288,
+            "n_lost_to_tiebreak": 192
+          },
+          "mismatch_predicted_key_breakdown": {
+            "D# maj": 4,
+            "A# maj": 2,
+            "E min": 24,
+            "A min": 192
+          },
+          "n_windows_predicted_minor_mode": 216,
+          "fraction_defined_windows_predicted_minor_mode": 0.4235294117647059
+        }
+      },
+      "decision_source_breakdown": {
+        "total_stable_windows": 1269,
+        "windows_by_decision_source": {
+          "mediant_signal": 981,
+          "fallback_majority_vote_ambiguous": 288
+        },
+        "minor_windows_by_decision_source": {
+          "mediant_signal": 885
+        },
+        "major_windows_by_decision_source": {
+          "mediant_signal": 96,
+          "fallback_majority_vote_ambiguous": 288
+        },
+        "total_minor_windows": 885,
+        "minor_windows_from_leading_tone_fraction": 0.0,
+        "minor_windows_from_mediant_signal_fraction": 1.0,
+        "minor_windows_from_fallback_fraction": 0.0
+      },
+      "linearity_check_summary": {
+        "n_segments_checked": 7,
+        "all_passed": true,
+        "max_abs_error_overall": 0.0
+      }
+    }
+  },
+  "sensitivity_audit": {
+    "min4_interrupt1": {
+      "min_segment_windows": 4,
+      "brief_interruption_max": 1,
+      "per_piece": {
+        "L1": {
+          "n_segments_stable": 1,
+          "n_segments_total": 1,
+          "n_key_switches_resolved": 0,
+          "fraction_minor_mode_resolved": 0.0
+        },
+        "L2": {
+          "n_segments_stable": 13,
+          "n_segments_total": 13,
+          "n_key_switches_resolved": 12,
+          "fraction_minor_mode_resolved": 0.8292682926829268
+        },
+        "L3": {
+          "n_segments_stable": 7,
+          "n_segments_total": 14,
+          "n_key_switches_resolved": 12,
+          "fraction_minor_mode_resolved": 0.7264150943396226
+        },
+        "L4": {
+          "n_segments_stable": 20,
+          "n_segments_total": 33,
+          "n_key_switches_resolved": 32,
+          "fraction_minor_mode_resolved": 0.6990740740740741
+        },
+        "L5": {
+          "n_segments_stable": 3,
+          "n_segments_total": 3,
+          "n_key_switches_resolved": 2,
+          "fraction_minor_mode_resolved": 0.7058823529411765
+        },
+        "L6": {
+          "n_segments_stable": 9,
+          "n_segments_total": 13,
+          "n_key_switches_resolved": 11,
+          "fraction_minor_mode_resolved": 0.6963021243115657
+        }
+      }
+    },
+    "min4_interrupt3": {
+      "min_segment_windows": 4,
+      "brief_interruption_max": 3,
+      "per_piece": {
+        "L1": {
+          "n_segments_stable": 1,
+          "n_segments_total": 1,
+          "n_key_switches_resolved": 0,
+          "fraction_minor_mode_resolved": 0.0
+        },
+        "L2": {
+          "n_segments_stable": 13,
+          "n_segments_total": 13,
+          "n_key_switches_resolved": 12,
+          "fraction_minor_mode_resolved": 0.8292682926829268
+        },
+        "L3": {
+          "n_segments_stable": 5,
+          "n_segments_total": 8,
+          "n_key_switches_resolved": 6,
+          "fraction_minor_mode_resolved": 0.42452830188679247
+        },
+        "L4": {
+          "n_segments_stable": 20,
+          "n_segments_total": 25,
+          "n_key_switches_resolved": 24,
+          "fraction_minor_mode_resolved": 0.7777777777777778
+        },
+        "L5": {
+          "n_segments_stable": 3,
+          "n_segments_total": 3,
+          "n_key_switches_resolved": 2,
+          "fraction_minor_mode_resolved": 0.7058823529411765
+        },
+        "L6": {
+          "n_segments_stable": 7,
+          "n_segments_total": 9,
+          "n_key_switches_resolved": 7,
+          "fraction_minor_mode_resolved": 0.6963021243115657
+        }
+      }
+    },
+    "min6_interrupt1": {
+      "min_segment_windows": 6,
+      "brief_interruption_max": 1,
+      "per_piece": {
+        "L1": {
+          "n_segments_stable": 1,
+          "n_segments_total": 1,
+          "n_key_switches_resolved": 0,
+          "fraction_minor_mode_resolved": 0.0
+        },
+        "L2": {
+          "n_segments_stable": 12,
+          "n_segments_total": 13,
+          "n_key_switches_resolved": 12,
+          "fraction_minor_mode_resolved": 0.8292682926829268
+        },
+        "L3": {
+          "n_segments_stable": 5,
+          "n_segments_total": 14,
+          "n_key_switches_resolved": 12,
+          "fraction_minor_mode_resolved": 0.6886792452830188
+        },
+        "L4": {
+          "n_segments_stable": 13,
+          "n_segments_total": 33,
+          "n_key_switches_resolved": 32,
+          "fraction_minor_mode_resolved": 0.6157407407407407
+        },
+        "L5": {
+          "n_segments_stable": 3,
+          "n_segments_total": 3,
+          "n_key_switches_resolved": 2,
+          "fraction_minor_mode_resolved": 0.7058823529411765
+        },
+        "L6": {
+          "n_segments_stable": 9,
+          "n_segments_total": 13,
+          "n_key_switches_resolved": 11,
+          "fraction_minor_mode_resolved": 0.6963021243115657
+        }
+      }
+    },
+    "min6_interrupt3": {
+      "min_segment_windows": 6,
+      "brief_interruption_max": 3,
+      "per_piece": {
+        "L1": {
+          "n_segments_stable": 1,
+          "n_segments_total": 1,
+          "n_key_switches_resolved": 0,
+          "fraction_minor_mode_resolved": 0.0
+        },
+        "L2": {
+          "n_segments_stable": 12,
+          "n_segments_total": 13,
+          "n_key_switches_resolved": 12,
+          "fraction_minor_mode_resolved": 0.8292682926829268
+        },
+        "L3": {
+          "n_segments_stable": 3,
+          "n_segments_total": 8,
+          "n_key_switches_resolved": 6,
+          "fraction_minor_mode_resolved": 0.3867924528301887
+        },
+        "L4": {
+          "n_segments_stable": 15,
+          "n_segments_total": 25,
+          "n_key_switches_resolved": 24,
+          "fraction_minor_mode_resolved": 0.7129629629629629
+        },
+        "L5": {
+          "n_segments_stable": 3,
+          "n_segments_total": 3,
+          "n_key_switches_resolved": 2,
+          "fraction_minor_mode_resolved": 0.7058823529411765
+        },
+        "L6": {
+          "n_segments_stable": 7,
+          "n_segments_total": 9,
+          "n_key_switches_resolved": 7,
+          "fraction_minor_mode_resolved": 0.6963021243115657
+        }
+      }
+    },
+    "min8_interrupt1": {
+      "min_segment_windows": 8,
+      "brief_interruption_max": 1,
+      "per_piece": {
+        "L1": {
+          "n_segments_stable": 1,
+          "n_segments_total": 1,
+          "n_key_switches_resolved": 0,
+          "fraction_minor_mode_resolved": 0.0
+        },
+        "L2": {
+          "n_segments_stable": 8,
+          "n_segments_total": 13,
+          "n_key_switches_resolved": 12,
+          "fraction_minor_mode_resolved": 0.7560975609756098
+        },
+        "L3": {
+          "n_segments_stable": 5,
+          "n_segments_total": 14,
+          "n_key_switches_resolved": 12,
+          "fraction_minor_mode_resolved": 0.6886792452830188
+        },
+        "L4": {
+          "n_segments_stable": 7,
+          "n_segments_total": 33,
+          "n_key_switches_resolved": 34,
+          "fraction_minor_mode_resolved": 0.49074074074074076
+        },
+        "L5": {
+          "n_segments_stable": 3,
+          "n_segments_total": 3,
+          "n_key_switches_resolved": 2,
+          "fraction_minor_mode_resolved": 0.7058823529411765
+        },
+        "L6": {
+          "n_segments_stable": 9,
+          "n_segments_total": 13,
+          "n_key_switches_resolved": 11,
+          "fraction_minor_mode_resolved": 0.6963021243115657
+        }
+      }
+    },
+    "min8_interrupt3": {
+      "min_segment_windows": 8,
+      "brief_interruption_max": 3,
+      "per_piece": {
+        "L1": {
+          "n_segments_stable": 1,
+          "n_segments_total": 1,
+          "n_key_switches_resolved": 0,
+          "fraction_minor_mode_resolved": 0.0
+        },
+        "L2": {
+          "n_segments_stable": 8,
+          "n_segments_total": 13,
+          "n_key_switches_resolved": 12,
+          "fraction_minor_mode_resolved": 0.7560975609756098
+        },
+        "L3": {
+          "n_segments_stable": 3,
+          "n_segments_total": 8,
+          "n_key_switches_resolved": 6,
+          "fraction_minor_mode_resolved": 0.3867924528301887
+        },
+        "L4": {
+          "n_segments_stable": 9,
+          "n_segments_total": 25,
+          "n_key_switches_resolved": 28,
+          "fraction_minor_mode_resolved": 0.6203703703703703
+        },
+        "L5": {
+          "n_segments_stable": 3,
+          "n_segments_total": 3,
+          "n_key_switches_resolved": 2,
+          "fraction_minor_mode_resolved": 0.7058823529411765
+        },
+        "L6": {
+          "n_segments_stable": 7,
+          "n_segments_total": 9,
+          "n_key_switches_resolved": 7,
+          "fraction_minor_mode_resolved": 0.6963021243115657
+        }
+      }
+    }
+  },
+  "verdict_code": 3,
+  "verdict_text": "**Section-level Candidate B recovers minor mode but introduces unacceptable segmentation/stability damage.** L3 strict A-minor: 0.0000 -> 0.2925. L4 strict E-minor: 0.0000 -> 0.5000. Stability failure: L6 anchor deltas exceed the -0.05 tolerance (['-1.0000', '+0.0625', '-0.3765']). Per the Mechanistic finding section above, this damage is traced almost entirely to the `mediant_signal` decision path (structurally confounded with tonic-pitch prominence), while the `leading_tone_positive_evidence` path -- responsible for most of Chopin's and F\u00fcr Elise's core minor recovery -- does not exhibit the same failure mode.",
+  "notes": "Phase 3J-B: implements ONLY the revised Candidate B section-level resolver. Candidates A and C not implemented. No chord-id EMA/SRN, Chroma SRN, Transformer, or neural refinement. No dense per-timestep accuracy claimed. Anchors used only for evaluation, after all predictions/segments already exist. All constants frozen in PRE_REGISTERED_CONFIG before any anchor comparison."
+}

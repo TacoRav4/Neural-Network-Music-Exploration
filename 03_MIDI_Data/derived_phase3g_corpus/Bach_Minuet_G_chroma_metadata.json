@@ -1,0 +1,58 @@
+{
+  "midi_path": "03_MIDI_Data/candidate_intermediate_midi/J.S. Bach - Minuet in G Major, BWV Anh. 114.mid",
+  "duration_sec": 82.285632,
+  "window_sec": 0.5,
+  "memory_decay": 0.8,
+  "threshold_ratio": 0.1,
+  "raw_chroma_shape": [
+    164,
+    12
+  ],
+  "smoothed_chroma_shape": [
+    164,
+    12
+  ],
+  "thresholded_smoothed_chroma_shape": [
+    164,
+    12
+  ],
+  "total_notes": 430,
+  "n_instruments": 1,
+  "key_signature_changes": [],
+  "time_signature_changes": [
+    {
+      "time": 0.0,
+      "numerator": 4,
+      "denominator": 4
+    }
+  ],
+  "first_5_raw_chroma_rows_summary": [
+    {
+      "t": 0,
+      "nonzero_pcs": 3,
+      "max_val": 100.0
+    },
+    {
+      "t": 1,
+      "nonzero_pcs": 2,
+      "max_val": 50.0
+    },
+    {
+      "t": 2,
+      "nonzero_pcs": 2,
+      "max_val": 50.0
+    },
+    {
+      "t": 3,
+      "nonzero_pcs": 2,
+      "max_val": 50.0
+    },
+    {
+      "t": 4,
+      "nonzero_pcs": 1,
+      "max_val": 50.0
+    }
+  ],
+  "mean_chroma_energy": 8.15548780487805,
+  "nonzero_window_count": 164
+}

@@ -1,0 +1,58 @@
+{
+  "midi_path": "03_MIDI_Data/candidate_intermediate_midi/f-f-chopin-prelude-op-28-no-4.mid",
+  "duration_sec": 108.21422800000002,
+  "window_sec": 0.5,
+  "memory_decay": 0.8,
+  "threshold_ratio": 0.1,
+  "raw_chroma_shape": [
+    216,
+    12
+  ],
+  "smoothed_chroma_shape": [
+    216,
+    12
+  ],
+  "thresholded_smoothed_chroma_shape": [
+    216,
+    12
+  ],
+  "total_notes": 600,
+  "n_instruments": 2,
+  "key_signature_changes": [],
+  "time_signature_changes": [
+    {
+      "time": 0.0,
+      "numerator": 2,
+      "denominator": 2
+    }
+  ],
+  "first_5_raw_chroma_rows_summary": [
+    {
+      "t": 0,
+      "nonzero_pcs": 1,
+      "max_val": 90.0
+    },
+    {
+      "t": 1,
+      "nonzero_pcs": 1,
+      "max_val": 90.0
+    },
+    {
+      "t": 2,
+      "nonzero_pcs": 3,
+      "max_val": 180.0
+    },
+    {
+      "t": 3,
+      "nonzero_pcs": 3,
+      "max_val": 180.0
+    },
+    {
+      "t": 4,
+      "nonzero_pcs": 3,
+      "max_val": 180.0
+    }
+  ],
+  "mean_chroma_energy": 29.791666666666668,
+  "nonzero_window_count": 211
+}

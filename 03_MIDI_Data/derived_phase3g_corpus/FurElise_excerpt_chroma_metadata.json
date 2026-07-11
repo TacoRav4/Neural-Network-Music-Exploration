@@ -1,0 +1,58 @@
+{
+  "midi_path": "03_MIDI_Data/candidate_intermediate_midi/excerpts/Fur_Elise_opening_0_54s.mid",
+  "duration_sec": 53.99994600000001,
+  "window_sec": 0.5,
+  "memory_decay": 0.8,
+  "threshold_ratio": 0.1,
+  "raw_chroma_shape": [
+    107,
+    12
+  ],
+  "smoothed_chroma_shape": [
+    107,
+    12
+  ],
+  "thresholded_smoothed_chroma_shape": [
+    107,
+    12
+  ],
+  "total_notes": 278,
+  "n_instruments": 1,
+  "key_signature_changes": [],
+  "time_signature_changes": [
+    {
+      "time": 0.0,
+      "numerator": 4,
+      "denominator": 4
+    }
+  ],
+  "first_5_raw_chroma_rows_summary": [
+    {
+      "t": 0,
+      "nonzero_pcs": 0,
+      "max_val": 0.0
+    },
+    {
+      "t": 1,
+      "nonzero_pcs": 1,
+      "max_val": 71.0
+    },
+    {
+      "t": 2,
+      "nonzero_pcs": 1,
+      "max_val": 70.0
+    },
+    {
+      "t": 3,
+      "nonzero_pcs": 1,
+      "max_val": 76.0
+    },
+    {
+      "t": 4,
+      "nonzero_pcs": 1,
+      "max_val": 83.0
+    }
+  ],
+  "mean_chroma_energy": 7.88006230529595,
+  "nonzero_window_count": 105
+}

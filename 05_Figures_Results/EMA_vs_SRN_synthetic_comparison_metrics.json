@@ -1,0 +1,182 @@
+{
+  "phase": "phase_1_synthetic_only",
+  "seed": 269,
+  "dataset": {
+    "seed_base": 269,
+    "train_seed": 269,
+    "val_seed": 1269,
+    "test_seed": 2269,
+    "train_size": 400,
+    "val_size": 90,
+    "test_size": 100,
+    "length_range": [
+      16,
+      48
+    ],
+    "include_no_modulation": true
+  },
+  "baseline": {
+    "primary_alpha": 0.2,
+    "primary_metrics": {
+      "n_sequences": 100,
+      "n_timesteps": 5762,
+      "overall_accuracy": 0.7528635890315862,
+      "masked_accuracy_excl_ambiguous": 0.7551250281594953,
+      "ambiguous_timestep_accuracy": 0.745275888133031,
+      "ambiguous_timestep_count": 1323,
+      "modulation_accuracy": 0.7485380116959064,
+      "no_modulation_accuracy": 0.7879746835443038,
+      "pre_pivot_accuracy": 0.7746697746697747,
+      "post_pivot_accuracy": 0.7222222222222222,
+      "pivot_timestep_accuracy": 0.0375,
+      "modulation_lag": {
+        "n_modulation_sequences": 80,
+        "n_switch_success": 78,
+        "n_switch_failure": 2,
+        "switch_failure_rate": 0.025,
+        "mean_lag": 4.871794871794871,
+        "median_lag": 4.0,
+        "min_lag": 0.0,
+        "max_lag": 18.0
+      }
+    },
+    "alpha_sweep": {
+      "0.10": {
+        "n_sequences": 100,
+        "n_timesteps": 5762,
+        "overall_accuracy": 0.750433877125998,
+        "masked_accuracy_excl_ambiguous": 0.7490425771570174,
+        "ambiguous_timestep_accuracy": 0.7551020408163265,
+        "ambiguous_timestep_count": 1323,
+        "modulation_accuracy": 0.7417153996101364,
+        "no_modulation_accuracy": 0.8212025316455697,
+        "pre_pivot_accuracy": 0.8154623154623155,
+        "post_pivot_accuracy": 0.6674491392801252,
+        "pivot_timestep_accuracy": 0.0,
+        "modulation_lag": {
+          "n_modulation_sequences": 80,
+          "n_switch_success": 76,
+          "n_switch_failure": 4,
+          "switch_failure_rate": 0.05,
+          "mean_lag": 8.460526315789474,
+          "median_lag": 7.0,
+          "min_lag": 2.0,
+          "max_lag": 29.0
+        }
+      },
+      "0.20": {
+        "n_sequences": 100,
+        "n_timesteps": 5762,
+        "overall_accuracy": 0.7528635890315862,
+        "masked_accuracy_excl_ambiguous": 0.7551250281594953,
+        "ambiguous_timestep_accuracy": 0.745275888133031,
+        "ambiguous_timestep_count": 1323,
+        "modulation_accuracy": 0.7485380116959064,
+        "no_modulation_accuracy": 0.7879746835443038,
+        "pre_pivot_accuracy": 0.7746697746697747,
+        "post_pivot_accuracy": 0.7222222222222222,
+        "pivot_timestep_accuracy": 0.0375,
+        "modulation_lag": {
+          "n_modulation_sequences": 80,
+          "n_switch_success": 78,
+          "n_switch_failure": 2,
+          "switch_failure_rate": 0.025,
+          "mean_lag": 4.871794871794871,
+          "median_lag": 4.0,
+          "min_lag": 0.0,
+          "max_lag": 18.0
+        }
+      },
+      "0.35": {
+        "n_sequences": 100,
+        "n_timesteps": 5762,
+        "overall_accuracy": 0.6919472405414786,
+        "masked_accuracy_excl_ambiguous": 0.696102725839153,
+        "ambiguous_timestep_accuracy": 0.6780045351473923,
+        "ambiguous_timestep_count": 1323,
+        "modulation_accuracy": 0.6888888888888889,
+        "no_modulation_accuracy": 0.7167721518987342,
+        "pre_pivot_accuracy": 0.6926961926961926,
+        "post_pivot_accuracy": 0.685054773082942,
+        "pivot_timestep_accuracy": 0.075,
+        "modulation_lag": {
+          "n_modulation_sequences": 80,
+          "n_switch_success": 80,
+          "n_switch_failure": 0,
+          "switch_failure_rate": 0.0,
+          "mean_lag": 3.7,
+          "median_lag": 3.0,
+          "min_lag": 0.0,
+          "max_lag": 15.0
+        }
+      },
+      "0.50": {
+        "n_sequences": 100,
+        "n_timesteps": 5762,
+        "overall_accuracy": 0.6015272474835127,
+        "masked_accuracy_excl_ambiguous": 0.5996846136517233,
+        "ambiguous_timestep_accuracy": 0.6077097505668935,
+        "ambiguous_timestep_count": 1323,
+        "modulation_accuracy": 0.5982456140350877,
+        "no_modulation_accuracy": 0.6281645569620253,
+        "pre_pivot_accuracy": 0.5967365967365967,
+        "post_pivot_accuracy": 0.5997652582159625,
+        "pivot_timestep_accuracy": 0.2375,
+        "modulation_lag": {
+          "n_modulation_sequences": 80,
+          "n_switch_success": 80,
+          "n_switch_failure": 0,
+          "switch_failure_rate": 0.0,
+          "mean_lag": 3.5875,
+          "median_lag": 3.0,
+          "min_lag": 0.0,
+          "max_lag": 15.0
+        }
+      }
+    },
+    "mlp_training": {
+      "seed": 269,
+      "epochs": 12,
+      "n_samples": 60000,
+      "final_train_loss": 1.7203,
+      "final_val_loss": 1.7167,
+      "final_val_acc": 0.287
+    }
+  },
+  "srn": {
+    "training_settings": {
+      "seed": 269,
+      "epochs": 10,
+      "lr": 0.01,
+      "hidden_size": 48,
+      "final_train_loss": 1.0483,
+      "final_train_acc": 0.595,
+      "final_val_loss": 1.0338,
+      "final_val_acc": 0.623
+    },
+    "metrics": {
+      "n_sequences": 100,
+      "n_timesteps": 5762,
+      "overall_accuracy": 0.6355432141617494,
+      "masked_accuracy_excl_ambiguous": 0.6388826312232485,
+      "ambiguous_timestep_accuracy": 0.6243386243386243,
+      "ambiguous_timestep_count": 1323,
+      "modulation_accuracy": 0.6362573099415205,
+      "no_modulation_accuracy": 0.629746835443038,
+      "pre_pivot_accuracy": 0.6697746697746698,
+      "post_pivot_accuracy": 0.6025039123630673,
+      "pivot_timestep_accuracy": 0.1,
+      "modulation_lag": {
+        "n_modulation_sequences": 80,
+        "n_switch_success": 71,
+        "n_switch_failure": 9,
+        "switch_failure_rate": 0.1125,
+        "mean_lag": 6.422535211267606,
+        "median_lag": 4.0,
+        "min_lag": 0.0,
+        "max_lag": 27.0
+      }
+    }
+  },
+  "notes": "Synthetic-only Phase 1 comparison. Does not yet evaluate Twinkle.mid or Twinkle 12.mid. Both models use the same 24-dim one-hot chord/triad input representation."
+}

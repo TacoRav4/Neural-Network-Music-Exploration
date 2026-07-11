@@ -1,0 +1,190 @@
+{
+  "phase": "phase_2d_pitch_class_baseline_evaluation",
+  "settings": {
+    "window_sec": 0.5,
+    "memory_decay": 0.8,
+    "twinkle_mid_offset_windows": 0,
+    "twinkle_12_mid_offset_windows": 103
+  },
+  "twinkle_mid": {
+    "overall": {
+      "n_timesteps": 106,
+      "top_predicted_keys": [
+        {
+          "key": "C maj",
+          "count": 106,
+          "fraction": 1.0
+        }
+      ],
+      "n_unique_predicted_keys": 1,
+      "proportion_c_major": 1.0,
+      "fifths_jump_stats": {
+        "mean_jump": 0.0,
+        "max_jump": 0.0,
+        "large_jump_count": 0,
+        "large_jump_fraction": 0.0,
+        "large_jump_threshold": 3
+      }
+    },
+    "comparison_note": "C major is the single most common prediction, in clear contrast with both chord-id models' F-major dominance in Phase 1.5B."
+  },
+  "twinkle_12_mid": {
+    "overall": {
+      "n_timesteps": 1271,
+      "top_predicted_keys": [
+        {
+          "key": "C maj",
+          "count": 1155,
+          "fraction": 0.9087332808811959
+        },
+        {
+          "key": "D# maj",
+          "count": 90,
+          "fraction": 0.07081038552321008
+        },
+        {
+          "key": "G maj",
+          "count": 24,
+          "fraction": 0.01888276947285602
+        },
+        {
+          "key": "A# maj",
+          "count": 2,
+          "fraction": 0.0015735641227380016
+        }
+      ],
+      "n_unique_predicted_keys": 4,
+      "proportion_c_major": 0.9087332808811959,
+      "fifths_jump_stats": {
+        "mean_jump": 0.01732283464566929,
+        "max_jump": 3.0,
+        "large_jump_count": 5,
+        "large_jump_fraction": 0.003937007874015748,
+        "large_jump_threshold": 3
+      }
+    },
+    "key_signature_events": [
+      {
+        "time": 0.0,
+        "key_name": "C Major"
+      },
+      {
+        "time": 384.0,
+        "key_name": "Eb Major"
+      },
+      {
+        "time": 392.0,
+        "key_name": "Eb Major"
+      },
+      {
+        "time": 432.0,
+        "key_name": "C Major"
+      },
+      {
+        "time": 440.0,
+        "key_name": "C Major"
+      }
+    ],
+    "windows": {
+      "pre_384s": {
+        "n_timesteps": 665,
+        "top_predicted_keys": [
+          {
+            "key": "C maj",
+            "count": 665,
+            "fraction": 1.0
+          }
+        ],
+        "n_unique_predicted_keys": 1,
+        "proportion_c_major": 1.0,
+        "fifths_jump_stats": {
+          "mean_jump": 0.0,
+          "max_jump": 0.0,
+          "large_jump_count": 0,
+          "large_jump_fraction": 0.0,
+          "large_jump_threshold": 3
+        },
+        "window_start_idx": 0,
+        "window_end_idx": 665,
+        "window_start_sec": null,
+        "window_end_sec": 384.0,
+        "offset_windows_applied": 103,
+        "expected_key": "C Major",
+        "proportion_expected_key": 1.0
+      },
+      "384_to_432s": {
+        "n_timesteps": 96,
+        "top_predicted_keys": [
+          {
+            "key": "D# maj",
+            "count": 86,
+            "fraction": 0.8958333333333334
+          },
+          {
+            "key": "C maj",
+            "count": 10,
+            "fraction": 0.10416666666666667
+          }
+        ],
+        "n_unique_predicted_keys": 2,
+        "proportion_c_major": 0.10416666666666667,
+        "fifths_jump_stats": {
+          "mean_jump": 0.15789473684210525,
+          "max_jump": 3.0,
+          "large_jump_count": 5,
+          "large_jump_fraction": 0.05263157894736842,
+          "large_jump_threshold": 3
+        },
+        "window_start_idx": 665,
+        "window_end_idx": 761,
+        "window_start_sec": 384.0,
+        "window_end_sec": 432.0,
+        "offset_windows_applied": 103,
+        "expected_key": "Eb Major",
+        "proportion_expected_key": 0.8958333333333334
+      },
+      "post_432s": {
+        "n_timesteps": 510,
+        "top_predicted_keys": [
+          {
+            "key": "C maj",
+            "count": 480,
+            "fraction": 0.9411764705882353
+          },
+          {
+            "key": "G maj",
+            "count": 24,
+            "fraction": 0.047058823529411764
+          },
+          {
+            "key": "D# maj",
+            "count": 4,
+            "fraction": 0.00784313725490196
+          },
+          {
+            "key": "A# maj",
+            "count": 2,
+            "fraction": 0.00392156862745098
+          }
+        ],
+        "n_unique_predicted_keys": 4,
+        "proportion_c_major": 0.9411764705882353,
+        "fifths_jump_stats": {
+          "mean_jump": 0.0137524557956778,
+          "max_jump": 2.0,
+          "large_jump_count": 0,
+          "large_jump_fraction": 0.0,
+          "large_jump_threshold": 3
+        },
+        "window_start_idx": 761,
+        "window_end_idx": 1271,
+        "window_start_sec": 432.0,
+        "window_end_sec": null,
+        "offset_windows_applied": 103,
+        "expected_key": "C Major",
+        "proportion_expected_key": 0.9411764705882353
+      }
+    }
+  },
+  "notes": "Phase 2D: non-neural pitch-class/scale-template baseline evaluation. No Chroma SRN, Transformer, or QuickBin-like staged pipeline implemented. Descriptive metrics only -- no dense per-timestep ground truth exists for real MIDI."
+}

@@ -1,0 +1,64 @@
+{
+  "midi_path": "03_MIDI_Data/candidate_intermediate_midi/excerpts/Clementi_Op36_No1_I_exposition_norepeat_0_17p3s.mid",
+  "duration_sec": 17.299985285416664,
+  "window_sec": 0.5,
+  "memory_decay": 0.8,
+  "threshold_ratio": 0.1,
+  "raw_chroma_shape": [
+    34,
+    12
+  ],
+  "smoothed_chroma_shape": [
+    34,
+    12
+  ],
+  "thresholded_smoothed_chroma_shape": [
+    34,
+    12
+  ],
+  "total_notes": 135,
+  "n_instruments": 2,
+  "key_signature_changes": [
+    {
+      "time": 0.0,
+      "key_number": 0,
+      "key_name": "C Major"
+    }
+  ],
+  "time_signature_changes": [
+    {
+      "time": 0.0,
+      "numerator": 4,
+      "denominator": 4
+    }
+  ],
+  "first_5_raw_chroma_rows_summary": [
+    {
+      "t": 0,
+      "nonzero_pcs": 1,
+      "max_val": 52.0
+    },
+    {
+      "t": 1,
+      "nonzero_pcs": 1,
+      "max_val": 43.0
+    },
+    {
+      "t": 2,
+      "nonzero_pcs": 1,
+      "max_val": 57.0
+    },
+    {
+      "t": 3,
+      "nonzero_pcs": 0,
+      "max_val": 0.0
+    },
+    {
+      "t": 4,
+      "nonzero_pcs": 2,
+      "max_val": 65.0
+    }
+  ],
+  "mean_chroma_energy": 5.573529411764706,
+  "nonzero_window_count": 32
+}

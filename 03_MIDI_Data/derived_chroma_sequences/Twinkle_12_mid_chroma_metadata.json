@@ -1,0 +1,99 @@
+{
+  "midi_path": "03_MIDI_Data/Twinkle 12.mid",
+  "duration_sec": 687.4741503333333,
+  "window_sec": 0.5,
+  "memory_decay": 0.8,
+  "threshold_ratio": 0.1,
+  "raw_chroma_shape": [
+    1374,
+    12
+  ],
+  "smoothed_chroma_shape": [
+    1374,
+    12
+  ],
+  "thresholded_smoothed_chroma_shape": [
+    1374,
+    12
+  ],
+  "total_notes": 6294,
+  "n_instruments": 2,
+  "key_signature_changes": [
+    {
+      "time": 0.0,
+      "key_number": 0,
+      "key_name": "C Major"
+    },
+    {
+      "time": 384.0,
+      "key_number": 3,
+      "key_name": "Eb Major"
+    },
+    {
+      "time": 392.0,
+      "key_number": 3,
+      "key_name": "Eb Major"
+    },
+    {
+      "time": 432.0,
+      "key_number": 0,
+      "key_name": "C Major"
+    },
+    {
+      "time": 440.0,
+      "key_number": 0,
+      "key_name": "C Major"
+    }
+  ],
+  "time_signature_changes": [
+    {
+      "time": 0.0,
+      "numerator": 2,
+      "denominator": 4
+    },
+    {
+      "time": 8.0,
+      "numerator": 2,
+      "denominator": 4
+    },
+    {
+      "time": 600.000192,
+      "numerator": 3,
+      "denominator": 4
+    },
+    {
+      "time": 612.000192,
+      "numerator": 3,
+      "denominator": 4
+    }
+  ],
+  "first_5_raw_chroma_rows_summary": [
+    {
+      "t": 0,
+      "nonzero_pcs": 0,
+      "max_val": 0.0
+    },
+    {
+      "t": 1,
+      "nonzero_pcs": 0,
+      "max_val": 0.0
+    },
+    {
+      "t": 2,
+      "nonzero_pcs": 0,
+      "max_val": 0.0
+    },
+    {
+      "t": 3,
+      "nonzero_pcs": 0,
+      "max_val": 0.0
+    },
+    {
+      "t": 4,
+      "nonzero_pcs": 0,
+      "max_val": 0.0
+    }
+  ],
+  "mean_chroma_energy": 2.1974769529354683,
+  "nonzero_window_count": 284
+}
